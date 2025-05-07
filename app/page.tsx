@@ -7,12 +7,12 @@ export default function Home() {
   return (
     <Container style={{ paddingTop: "40px", paddingBottom: "40px" }}>
       <Typography variant="h4" style={{ textAlign: "center" }}>
-        Stop following tutorials. Start building real-world projects.
+        Stop following ML tutorials. Start building real-world ML projects.
       </Typography>
       <Box style={{ textAlign: "center", marginTop: "40px" }}>
         <Link href="https://forms.gle/zGadCw1NJqmLdp6w9">
           <Button variant="contained" size="large">
-            Sign up
+            Start ml projects now
           </Button>
         </Link>
       </Box>
@@ -33,48 +33,39 @@ export default function Home() {
           alt="mena agina"
         />
         <Box sx={{ width: { xs: "100%", md: "50%" } }}>
+          <Typography>
+            Hi, I’m Mena Agina — founder of this site, software developer, and
+            AI enthusiast.
+          </Typography>
+          <Typography style={{ marginTop: "30px", marginBottom: "30px" }}>
+            If you’ve been stuck in tutorial hell, watching Machine learning
+            videos without building anything real — you’re not alone. <br />
+            <br /> That’s why I built this platform: to help web developers like
+            you start building real machine learning projects.
+          </Typography>
           <Box>
-            <Typography>
-              Hello! My name is Mena Agina — I am the founder of this website, a
-              software developer and AI enthusiast (and if you’re reading this,
-              chances are you are too).
-            </Typography>
-            <Typography style={{ marginTop: "30px", marginBottom: "30px" }}>
-              Let’s be honest: <br />
-              Many web developers get stuck in tutorial hell — watching endless
-              machine learning or coding videos without ever building something
-              real. Without hands-on projects, your learning stalls, confidence
-              dips, and your portfolio remains empty.
-            </Typography>
             <Box>
-              That’s where this site comes in. <br />
-              <Box>
-                <Typography>
-                  My goal is to help you get back to doing what you love —
-                  building real projects. We’ll provide:
-                </Typography>
-                <Typography> (1) A clear project description</Typography>
-                <Typography>
-                  (2) Detailed design guidelines for desktop, mobile, and tablet
-                </Typography>
-                <Typography>
-                  (3) CSS styling instructions and all the key requirements
-                  you’ll need to build the app
-                </Typography>
-              </Box>
+              <Typography>We give you:</Typography>
+              <Typography> (1) Clear project descriptionsn</Typography>
+              <Typography>(2) Responsive design specs</Typography>
+              <Typography>(3) CSS and functionality guidelines</Typography>
             </Box>
-
-            <Typography style={{ marginTop: "30px", marginBottom: "30px" }}>
-              Once you’re done, the project is yours. <br />
-              Share it with friends, add it to your résumé or LinkedIn, and even
-              showcase it in our community so others can see your work.
-            </Typography>
-            <Typography>
-              I hope you’re as excited as I am. <br />
-              Sign up now so we can notify you when the next project is ready to
-              build!
-            </Typography>
           </Box>
+
+          <Typography style={{ marginTop: "30px", marginBottom: "30px" }}>
+            Finish the project, and it is yours to showcase anywhere — your
+            portfolio, LinkedIn, or even our community. <br />
+          </Typography>
+          <Typography>
+            New to Machine learning? We’ve got a crash course to get you up to
+            speed. <br />
+            Let’s build something real. 🚀
+          </Typography>
+          <Link href="course">
+            <Button variant="outlined" style={{ marginTop: "10px" }}>
+              Start ML course now
+            </Button>
+          </Link>
         </Box>
       </Box>
       <Box style={{ marginTop: "30px", marginBottom: "30px" }}>
@@ -91,9 +82,8 @@ export default function Home() {
           }}
         >
           <Benefit
-            title="Real-World AI Projects "
-            description=" Work on projects that mimic real startup
-          challenges—no step-by-step instructions."
+            title="Real-World ML Projects "
+            description=" Work on projects with no step-by-step instructions."
           />
           <Benefit
             title="No More Hand-Holding"
@@ -101,12 +91,11 @@ export default function Home() {
           />
           <Benefit
             title="Build a Real Portfolio project"
-            description="Showcase projects that prove your skills—perfect for hiring
-          managers and tech recruiters"
+            description="Showcase projects that prove your skills—perfect for hiring managers and tech recruiters"
           />
           <Benefit
             title="Built for Web Developers"
-            description="Our projects are tailored for devs who know React, Next.js, or similar stacks and want to start building AI projects."
+            description="Our projects are tailored for devs who know React, Next.js, or similar stacks and want to start building ML projects."
           />
         </Box>
       </Box>
@@ -118,7 +107,7 @@ export default function Home() {
           <Typography>(1) Web developers tired of tutorial hell</Typography>
           <Typography>
             {" "}
-            (2) Self-taught devs looking to break into AI
+            (2) Self-taught devs looking to break into ML
           </Typography>
           <Typography>(3) Bootcamp grads building their portfolio</Typography>
           <Typography> (4) Engineers transitioning into ML</Typography>
@@ -129,7 +118,7 @@ export default function Home() {
           Ready to Get Out of Tutorial Hell?
         </Typography>
         <Link href="https://forms.gle/zGadCw1NJqmLdp6w9">
-          <Button variant="contained">Sign up</Button>
+          <Button variant="contained">Start ml projects now</Button>
         </Link>
       </Box>
     </Container>
