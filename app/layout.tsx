@@ -26,7 +26,7 @@ export default function RootLayout({
               (function() {
                 var mf = document.createElement("script");
                 mf.type = "text/javascript"; mf.defer = true;
-                mf.src = "//cdn.mouseflow.com/projects/ca4cfed4-6a6a-432f-a314-8f5e72121039.js";
+                mf.src = "https://cdn.mouseflow.com/projects/ca4cfed4-6a6a-432f-a314-8f5e72121039.js";
                 document.getElementsByTagName("head")[0].appendChild(mf);
               })();
             `,
