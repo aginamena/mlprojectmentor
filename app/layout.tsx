@@ -1,6 +1,6 @@
 import ThemeRegistry from "@/components/ThemeRegistry";
 import type { Metadata } from "next";
-
+import Script from "next/script";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 
@@ -17,7 +17,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <script
+        <Script
+          id="mouseflow"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               window._mfq = window._mfq || [];
