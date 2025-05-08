@@ -19,15 +19,16 @@ export default function RootLayout({
       <head>
         <Script
           id="mouseflow"
-          strategy="beforeInteractive"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               window._mfq = window._mfq || [];
               (function() {
                 var mf = document.createElement("script");
-                mf.type = "text/javascript"; mf.defer = true;
+                mf.type = "text/javascript";
+                mf.defer = true;
                 mf.src = "https://cdn.mouseflow.com/projects/ca4cfed4-6a6a-432f-a314-8f5e72121039.js";
-                document.getElementsByTagName("head")[0].appendChild(mf);
+                document.head.appendChild(mf);
               })();
             `,
           }}
