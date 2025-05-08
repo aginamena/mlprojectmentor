@@ -11,7 +11,7 @@ export default function WhyMLIsImportant() {
       <br />
       <br />
       <b>1. Machine Learning Powers Everyday Technologies</b>
-      <br /> ML is no longer a futuristic concept — it's embedded in our lives
+      <br /> ML is no longer a futuristic concept — it is embedded in our lives
       in ways we don’t even think about. It’s transforming industries and
       providing us with experiences that seem almost magical. <br />
       <b>Real-World Examples:</b> <br />
