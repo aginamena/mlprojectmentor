@@ -1,6 +1,5 @@
 import ThemeRegistry from "@/components/ThemeRegistry";
 import type { Metadata } from "next";
-import Script from "next/script";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 
@@ -17,18 +16,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <Script
-          id="mouseflow"
-          strategy="afterInteractive"
+        <script
           dangerouslySetInnerHTML={{
             __html: `
               window._mfq = window._mfq || [];
               (function() {
                 var mf = document.createElement("script");
-                mf.type = "text/javascript";
-                mf.defer = true;
-                mf.src = "https://cdn.mouseflow.com/projects/ca4cfed4-6a6a-432f-a314-8f5e72121039.js";
-                document.head.appendChild(mf);
+                mf.type = "text/javascript"; mf.defer = true;
+                mf.src = "//cdn.mouseflow.com/projects/ca4cfed4-6a6a-432f-a314-8f5e72121039.js";
+                document.getElementsByTagName("head")[0].appendChild(mf);
               })();
             `,
           }}
