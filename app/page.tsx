@@ -10,7 +10,7 @@ export default function Home() {
         Stop following ML tutorials. Start building real-world ML projects.
       </Typography>
       <Box style={{ textAlign: "center", marginTop: "40px" }}>
-        <Link href="https://forms.gle/zGadCw1NJqmLdp6w9">
+        <Link href="projects">
           <Button variant="contained" size="large">
             Start ml projects now
           </Button>
@@ -56,16 +56,7 @@ export default function Home() {
             Finish the project, and it is yours to showcase anywhere — your
             portfolio, LinkedIn, or even our community. <br />
           </Typography>
-          <Typography>
-            New to Machine learning? We’ve got a crash course to get you up to
-            speed. <br />
-            Let’s build something real. 🚀
-          </Typography>
-          <Link href="course">
-            <Button variant="outlined" style={{ marginTop: "10px" }}>
-              Start ML course now
-            </Button>
-          </Link>
+          <Typography>Let’s build something real. 🚀</Typography>
         </Box>
       </Box>
       <Box style={{ marginTop: "30px", marginBottom: "30px" }}>
@@ -117,7 +108,7 @@ export default function Home() {
         <Typography variant="h5" style={{ marginBottom: "30px" }}>
           Ready to Get Out of Tutorial Hell?
         </Typography>
-        <Link href="https://forms.gle/zGadCw1NJqmLdp6w9">
+        <Link href="projects">
           <Button variant="contained">Start ml projects now</Button>
         </Link>
       </Box>
