@@ -46,8 +46,10 @@ export default function ZipFiles() {
     const homepageBlob = await homepage.blob();
     const review = await fetch("/homepage.png");
     const reviewBlob = await review.blob();
-    sub.file("homepage.png", homepageBlob);
-    sub.file("review.png", reviewBlob);
+    if (sub) {
+      sub.file("homepage.png", homepageBlob);
+      sub.file("review.png", reviewBlob);
+    }
 
     const fakedReviews = reviews.map((review) => ({
       name: faker.internet.username(),
