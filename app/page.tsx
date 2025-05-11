@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <Container style={{ paddingTop: "40px", paddingBottom: "40px" }}>
       <Typography variant="h4" style={{ textAlign: "center" }}>
-        Stop following ML tutorials. Start building real-world ML projects.
+        Start Building Machine Learning Projects — Using Just JavaScript!
       </Typography>
       <Box style={{ textAlign: "center", marginTop: "40px" }}>
         <Link href="projects">
@@ -38,17 +38,17 @@ export default function Home() {
             AI enthusiast.
           </Typography>
           <Typography style={{ marginTop: "30px", marginBottom: "30px" }}>
-            If you’ve been stuck in tutorial hell, watching Machine learning
-            videos without building anything real — you’re not alone. <br />
-            <br /> That’s why I built this platform: to help web developers like
-            you start building real machine learning projects.
+            This platform is made for web developers who know HTML, CSS, and
+            JavaScript and want to start building practical, real-world ML
+            projects
           </Typography>
           <Box>
             <Box>
-              <Typography>We give you:</Typography>
-              <Typography> (1) Clear project descriptionsn</Typography>
-              <Typography>(2) Responsive design specs</Typography>
-              <Typography>(3) CSS and functionality guidelines</Typography>
+              <Typography>
+                We provide clear project descriptions, expected outcomes, and
+                all the resources you need to build confidently and
+                successfully.
+              </Typography>
             </Box>
           </Box>
 
@@ -86,7 +86,7 @@ export default function Home() {
           />
           <Benefit
             title="Built for Web Developers"
-            description="Our projects are tailored for devs who know React, Next.js, or similar stacks and want to start building ML projects."
+            description="Our projects are tailored for devs who know html, css and javascript and want to start building ML projects."
           />
         </Box>
       </Box>
@@ -95,18 +95,20 @@ export default function Home() {
           Who is this for
         </Typography>
         <Box>
-          <Typography>(1) Web developers tired of tutorial hell</Typography>
+          <Typography>
+            1. Web developers stuck in machine learning tutorial hell who are
+            ready to start building real projects.
+          </Typography>
           <Typography>
             {" "}
-            (2) Self-taught devs looking to break into ML
+            2. Web developers who know HTML, CSS, and JavaScript and want to
+            apply their skills to machine learning.
           </Typography>
-          <Typography>(3) Bootcamp grads building their portfolio</Typography>
-          <Typography> (4) Engineers transitioning into ML</Typography>
         </Box>
       </Box>
       <Box style={{ textAlign: "center", marginTop: "30px" }}>
         <Typography variant="h5" style={{ marginBottom: "30px" }}>
-          Ready to Get Out of Tutorial Hell?
+          Start Your First ML Project Now
         </Typography>
         <Link href="projects">
           <Button variant="contained">Start ml projects now</Button>
