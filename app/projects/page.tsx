@@ -21,7 +21,6 @@ export default function Projects() {
       <Paper
         style={{
           padding: "30px",
-          textAlign: "center",
           marginTop: "40px",
           marginBottom: "40px",
         }}
@@ -31,9 +30,18 @@ export default function Projects() {
         completed the requirements and want to challenge yourself further,
         consider working on the optional tasks to increase the difficulty.
         <br /> If you have any questions, feel free to ask fellow developers in
-        our Facebook community
+        our
         <Button>
-          <Link href="https://www.facebook.com/share/g/16ScKkia3h/">here</Link>
+          <Link href="https://www.facebook.com/share/g/16ScKkia3h/">
+            Facebook community.
+          </Link>
+        </Button>
+        If you want a refresher on how to use sentiment models to classify text,
+        read this
+        <Button>
+          <Link href="https://docs.ml5js.org/#/reference/sentiment">
+            ml5 guide.
+          </Link>
         </Button>
       </Paper>
       <Box
@@ -170,11 +178,6 @@ export default function Projects() {
           </Paper>
         </Box>
       </Box>
-      <Link href="https://forms.gle/QaZYq2QPnwWUHjXC6">
-        <Button variant="contained" style={{ marginTop: "20px" }}>
-          Start next project
-        </Button>
-      </Link>
     </Container>
   );
 }
