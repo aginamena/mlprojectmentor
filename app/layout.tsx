@@ -4,7 +4,7 @@ import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
-  title: "ML Project Mentor",
+  title: "Machine Learning Project Mentor",
   description:
     "Start Building Machine Learning Projects Using Just JavaScript!",
   openGraph: {
