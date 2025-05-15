@@ -10,10 +10,10 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://aiprojectmentor.vercel.app/",
-    title: "ML Project Mentor",
+    title: "Machine Learning Project Mentor",
     description:
       "Start Building Machine Learning Projects Using Just JavaScript!",
-    siteName: "ML Project Mentor",
+    siteName: "Machine Learning Project Mentor",
     images: [
       { url: "https://aiprojectmentor.vercel.app/joinOurCommunityImage.jpg" },
     ],
