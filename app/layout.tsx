@@ -7,6 +7,17 @@ export const metadata: Metadata = {
   title: "ML Project Mentor",
   description:
     "Start Building Machine Learning Projects Using Just JavaScript!",
+  openGraph: {
+    type: "website",
+    url: "https://aiprojectmentor.vercel.app/",
+    title: "ML Project Mentor",
+    description:
+      "Start Building Machine Learning Projects Using Just JavaScript!",
+    siteName: "ML Project Mentor",
+    images: [
+      { url: "https://aiprojectmentor.vercel.app/joinOurCommunityImage.jpg" },
+    ],
+  },
 };
 
 export default function RootLayout({
