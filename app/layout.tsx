@@ -6,7 +6,7 @@ import { Analytics } from "@vercel/analytics/next";
 export const metadata: Metadata = {
   title: "ML Project Mentor",
   description:
-    "Stop following ML tutorials. Start building real-world ML projects",
+    "Start Building Machine Learning Projects Using Just JavaScript!",
 };
 
 export default function RootLayout({
