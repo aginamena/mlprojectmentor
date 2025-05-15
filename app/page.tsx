@@ -105,7 +105,9 @@ export default function Home() {
             size="large"
             sx={{ fontWeight: 600, borderRadius: 3 }}
           >
-            <Link href="/projects">Start Your First ML Project Now!</Link>
+            <Link href="https://forms.gle/BLvR1MQDh88i1LvXA">
+              Start Your First ML Project Now!
+            </Link>
           </Button>
         </Box>
       </Box>
@@ -240,7 +242,9 @@ export default function Home() {
             },
           }}
         >
-          <Link href="/projects">Start Your First ML Project Now!</Link>
+          <Link href="https://forms.gle/BLvR1MQDh88i1LvXA">
+            Start Your First ML Project Now!
+          </Link>
         </Button>
       </Box>
 
@@ -312,7 +316,9 @@ export default function Home() {
                 },
               }}
             >
-              <Link href="/projects">Let’s build something real.</Link>
+              <Link href="https://forms.gle/BLvR1MQDh88i1LvXA">
+                Let’s build something real.
+              </Link>
             </Button>
           </Box>
         </Box>
