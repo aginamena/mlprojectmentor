@@ -14,7 +14,10 @@ export default function Projects() {
         }}
       >
         <Typography variant="h5">Customer Feedback Analysis</Typography>
-        <Typography>Category: Sentiment</Typography>
+        <Box>
+          <Typography>Category: Sentiment</Typography>
+          <Typography>Difficulty: Easy</Typography>
+        </Box>
       </Box>
 
       <Gallary />
