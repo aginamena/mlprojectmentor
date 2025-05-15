@@ -1,119 +1,424 @@
-import Benefit from "@/components/Benefit";
-import { Container, Typography, Box, Button } from "@mui/material";
+import CodeIcon from "@mui/icons-material/Code";
+import EmailIcon from "@mui/icons-material/Email";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import {
+  Box,
+  Button,
+  Card,
+  CardContent,
+  Grid,
+  Typography,
+} from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
+  const benefits = [
+    {
+      title: "Real-World ML Projects",
+      description:
+        "Each project on this site uses machine learning to solve a real-world problem.",
+      image: "/realWorldMachineLearning.jpg",
+    },
+    {
+      title: "No More Hand Holding",
+      description:
+        "Work on projects with no step-by-step instructions on how to complete it.",
+      image: "/noMoreHandHolding.jpg",
+    },
+    {
+      title: "Portfolio Ready Projects",
+      description:
+        "Showcase projects that prove your skills perfect for hiring managers and tech recruiters.",
+      image: "/portfolioReadyProject.jpg",
+    },
+    {
+      title: "Built For Web Developers",
+      description:
+        "Our projects are tailored for web devs who know html, css and javascript and want to start building ML projects",
+      image: "/introduction-image.jpg",
+    },
+  ];
+
   return (
-    <Container style={{ paddingTop: "40px", paddingBottom: "40px" }}>
-      <Typography variant="h4" style={{ textAlign: "center" }}>
-        Start Building Machine Learning Projects — Using Just JavaScript!
-      </Typography>
-      <Box style={{ textAlign: "center", marginTop: "40px" }}>
-        <Link href="projects">
-          <Button variant="contained" size="large">
-            Start ml projects now
+    <>
+      <Box
+        sx={{
+          position: "relative",
+          height: "700px",
+          backgroundImage: 'url("/introduction-image.jpg")',
+          backgroundSize: "cover",
+          py: 8,
+          px: 4,
+        }}
+      >
+        <Box
+          sx={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            background: `linear-gradient(to bottom, rgba(0,0,0,0.4) 30%, rgba(0,0,0,1) 100%)`,
+          }}
+        />
+        <Box sx={{ display: "flex", position: "relative" }}>
+          <Image
+            src="/logo.png"
+            width={40}
+            height={40}
+            alt="Machine Learning Project Mentor"
+          />
+          <Typography
+            sx={{ fontStyle: "italic", fontWeight: 700, marginLeft: "10px" }}
+          >
+            Machine Learning <br />
+            Project Mentor
+          </Typography>
+        </Box>
+        <Box
+          sx={{
+            maxWidth: "720px",
+            position: "absolute",
+            top: "50%",
+            transform: "translate(0, -10%)",
+          }}
+        >
+          <Typography
+            variant="h3"
+            component="h1"
+            sx={{
+              fontWeight: 800,
+              lineHeight: 1.2,
+              mb: 3,
+              fontSize: { xs: "2rem", md: "3.5rem" },
+            }}
+          >
+            Start Building Machine Learning Projects
+            <br />
+            Using Just JavaScript!
+          </Typography>
+
+          <Button
+            variant="contained"
+            color="primary"
+            size="large"
+            sx={{ fontWeight: 600, borderRadius: 3 }}
+          >
+            <Link href="/projects">Start Your First ML Project Now!</Link>
           </Button>
-        </Link>
+        </Box>
+      </Box>
+
+      <Box sx={{ py: 8, px: 4, backgroundColor: "#0f0f0f" }}>
+        <Typography
+          variant="h4"
+          align="center"
+          sx={{ fontWeight: 700, color: "white", mb: 6 }}
+        >
+          Your Benefits
+        </Typography>
+        <Grid container spacing={4} justifyContent="center">
+          {benefits.map((benefit, index) => (
+            <Grid key={index}>
+              <Box
+                sx={{
+                  height: 280,
+                  maxWidth: 607,
+                  borderRadius: 2,
+                  position: "relative",
+                  backgroundImage: `url(${benefit.image})`,
+                  backgroundSize: "cover",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "flex-end",
+                }}
+              >
+                <Box
+                  sx={{
+                    position: "absolute",
+                    width: "100%",
+                    height: "100%",
+                    background: `linear-gradient(to bottom, rgba(0,0,0,0.4) 30%, rgba(0,0,0,1) 100%)`,
+                  }}
+                />
+                <Box
+                  sx={{
+                    position: "relative",
+                    p: 2,
+                  }}
+                >
+                  <Typography variant="subtitle1" fontWeight={600}>
+                    {benefit.title}
+                  </Typography>
+                  <Typography variant="body2">{benefit.description}</Typography>
+                </Box>
+              </Box>
+            </Grid>
+          ))}
+        </Grid>
       </Box>
 
       <Box
         sx={{
-          display: { xs: "block", md: "flex" },
+          background: `linear-gradient(
+                  135deg,
+                  #00F9FF 10%,
+                 #0C00FF 50%,
+                  #00F9FF 100%
+                ) `,
+          display: "flex",
           alignItems: "center",
-          justifyContent: "space-between",
-          marginTop: "50px",
-          marginBottom: "50px",
+          justifyContent: "center",
+          flexDirection: "column",
+          px: 4,
+          py: 8,
         }}
       >
-        <Image
-          src="/mena_agina.png"
-          width={500}
-          height={200}
-          alt="mena agina"
-        />
-        <Box sx={{ width: { xs: "100%", md: "50%" } }}>
-          <Typography>
-            Hi, I’m Mena Agina — founder of this site, software developer, and
-            AI enthusiast.
-          </Typography>
-          <Typography style={{ marginTop: "30px", marginBottom: "30px" }}>
-            This platform is made for web developers who know HTML, CSS, and
-            JavaScript and want to start building practical, real-world ML
-            projects
-          </Typography>
-          <Box>
-            <Box>
-              <Typography>
-                We provide clear project descriptions, expected outcomes, and
-                all the resources you need to build confidently and
-                successfully.
-              </Typography>
-            </Box>
-          </Box>
+        <Typography
+          variant="h3"
+          sx={{ fontWeight: "bold", color: "#fff", mb: 6 }}
+        >
+          Built For
+        </Typography>
 
-          <Typography style={{ marginTop: "30px", marginBottom: "30px" }}>
-            Finish the project, and it is yours to showcase anywhere — your
-            portfolio, LinkedIn, or even our community. <br />
-          </Typography>
-          <Typography>Let’s build something real. 🚀</Typography>
-        </Box>
+        <Grid container spacing={4} sx={{ maxWidth: 1000 }}>
+          <Grid size={{ xs: 12, md: 6 }}>
+            <Card
+              sx={{
+                backgroundColor: "rgba(0, 0, 50, 0.5)",
+                color: "#fff",
+                borderRadius: 3,
+                p: 2,
+                height: "100%",
+              }}
+            >
+              <CardContent>
+                <CodeIcon sx={{ fontSize: 30, mb: 2, textAlign: "unset" }} />
+                <Typography variant="h6" fontWeight="bold">
+                  Web developers stuck in machine learning tutorial hell who are
+                  ready to start building real projects.
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+
+          <Grid size={{ xs: 12, md: 6 }}>
+            <Card
+              sx={{
+                backgroundColor: "rgba(0, 0, 50, 0.5)",
+                color: "#fff",
+                borderRadius: 3,
+                p: 2,
+                height: "100%",
+              }}
+            >
+              <CardContent>
+                <CodeIcon sx={{ fontSize: 30, mb: 2, textAlign: "unset" }} />
+                <Typography variant="h6" fontWeight="bold">
+                  Web developers who know HTML, CSS, and JavaScript and want to
+                  apply their skills to machine learning.
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+        </Grid>
+
+        <Button
+          variant="contained"
+          sx={{
+            mt: 6,
+            backgroundColor: "#fff",
+            color: "#000",
+            fontWeight: "bold",
+            px: 4,
+            py: 1.5,
+            borderRadius: 2,
+            fontSize: 16,
+            "&:hover": {
+              backgroundColor: "#e0e0e0",
+            },
+          }}
+        >
+          <Link href="/projects">Start Your First ML Project Now!</Link>
+        </Button>
       </Box>
-      <Box style={{ marginTop: "30px", marginBottom: "30px" }}>
+
+      <Box sx={{ backgroundColor: "#0f0f0f", color: "#fff", py: 8, px: 4 }}>
         <Typography
           variant="h4"
-          style={{ textAlign: "center", marginBottom: "20px" }}
+          align="center"
+          sx={{ fontWeight: 700, color: "white", mb: 6 }}
         >
-          What you will get
+          About Me
         </Typography>
         <Box
           sx={{
             display: { xs: "block", md: "flex" },
-            justifyContent: "space-between",
+            alignItems: "center",
+            justifyContent: "space-evenly",
           }}
         >
-          <Benefit
-            title="Real-World ML Projects "
-            description=" Work on projects with no step-by-step instructions."
-          />
-          <Benefit
-            title="No More Hand-Holding"
-            description="You won’t follow a tutorial. You’ll face prompts and specs that push you to build from scratch."
-          />
-          <Benefit
-            title="Build a Real Portfolio project"
-            description="Showcase projects that prove your skills—perfect for hiring managers and tech recruiters"
-          />
-          <Benefit
-            title="Built for Web Developers"
-            description="Our projects are tailored for devs who know html, css and javascript and want to start building ML projects."
-          />
+          <Box
+            sx={{
+              borderRadius: "16px",
+              background: `linear-gradient(
+                  45deg,
+                  rgba(0, 0, 0, 1) 30%,
+                  rgba(0, 249, 255, 0.3) 50%,
+                  rgba(0, 0, 0, 1) 80%
+                ) `,
+            }}
+          >
+            <Image
+              src="/mena_agina.png"
+              alt="Profile"
+              width={608}
+              height={608}
+              style={{
+                width: "100%",
+                height: "auto",
+              }}
+            />
+          </Box>
+          <Box sx={{ maxWidth: "608px", marginTop: { xs: "20px", md: 0 } }}>
+            <Typography sx={{ mb: 2 }}>
+              Hi, I’m Mena Agina — founder of this site, software developer, and
+              AI enthusiast.
+            </Typography>
+            <Typography sx={{ mb: 2 }}>
+              This platform is made for web developers who know HTML, CSS, and
+              JavaScript and want to start building practical, real-world ML
+              projects
+            </Typography>
+            <Typography sx={{ mb: 4 }}>
+              We provide clear project descriptions, expected outcomes, and all
+              the resources you need to build confidently and successfully.
+              Finish the project, and it is yours to showcase anywhere — your
+              portfolio, LinkedIn, or even our community.
+            </Typography>
+            <Button
+              variant="contained"
+              sx={{
+                backgroundColor: "#0050FF",
+                color: "#fff",
+                textTransform: "none",
+                fontWeight: "bold",
+                px: 4,
+                py: 1.5,
+                borderRadius: "30px",
+                "&:hover": {
+                  backgroundColor: "#003FD9",
+                },
+              }}
+            >
+              <Link href="/projects">Let’s build something real.</Link>
+            </Button>
+          </Box>
         </Box>
       </Box>
-      <Box style={{ textAlign: "center" }}>
-        <Typography variant="h4" style={{ marginBottom: "30px" }}>
-          Who is this for
-        </Typography>
-        <Box>
-          <Typography>
-            1. Web developers stuck in machine learning tutorial hell who are
-            ready to start building real projects.
+
+      <Box
+        sx={{
+          backgroundImage: "url('/joinOurCommunityImage.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          position: "relative",
+          minHeight: 350,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          px: 2,
+        }}
+      >
+        <Box
+          sx={{
+            position: "absolute",
+            inset: 0,
+            backgroundColor: "rgba(0, 0, 0, 0.7)",
+            zIndex: 1,
+          }}
+        />
+
+        <Box
+          sx={{
+            position: "relative",
+            zIndex: 2,
+            textAlign: "center",
+            color: "#fff",
+            maxWidth: 700,
+            px: 2,
+          }}
+        >
+          <Typography variant="h4" sx={{ fontWeight: "bold", mb: 2 }}>
+            Join Our Community 🚀
           </Typography>
-          <Typography>
-            {" "}
-            2. Web developers who know HTML, CSS, and JavaScript and want to
-            apply their skills to machine learning.
+          <Typography variant="body1" sx={{ mb: 3 }}>
+            We have an amazing community of builders, where you can
+            <br />
+            connect and collaborate with like minds
           </Typography>
+          <Button
+            variant="contained"
+            sx={{
+              backgroundColor: "#fff",
+              color: "#000",
+              textTransform: "none",
+              fontWeight: "bold",
+              px: 4,
+              py: 1.5,
+              borderRadius: "12px",
+              fontSize: "1rem",
+              "&:hover": {
+                backgroundColor: "#e5e5e5",
+              },
+            }}
+          >
+            <Link href="https://www.facebook.com/share/g/16ScKkia3h/">
+              Join our Facebook community
+            </Link>
+          </Button>
         </Box>
       </Box>
-      <Box style={{ textAlign: "center", marginTop: "30px" }}>
-        <Typography variant="h5" style={{ marginBottom: "30px" }}>
-          Start Your First ML Project Now
-        </Typography>
-        <Link href="projects">
-          <Button variant="contained">Start ml projects now</Button>
-        </Link>
+
+      <Box
+        sx={{
+          py: 8,
+          px: 4,
+          backgroundColor: "#0f0f0f",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
+      >
+        <Box sx={{ display: "flex" }}>
+          <Image
+            src="/logo.png"
+            width={40}
+            height={40}
+            alt="Machine Learning Project Mentor"
+          />
+          <Typography
+            sx={{ fontStyle: "italic", fontWeight: 700, marginLeft: "10px" }}
+          >
+            Machine Learning <br />
+            Project Mentor
+          </Typography>
+        </Box>
+        <Box sx={{ display: "flex" }}>
+          <Box sx={{ marginRight: "20px" }}>
+            <Link href="mailto:aginamena5@gmail.com">
+              <EmailIcon />
+            </Link>
+          </Box>
+          <Box>
+            <Link href="https://www.facebook.com/share/g/16ScKkia3h/">
+              <FacebookIcon />
+            </Link>
+          </Box>
+        </Box>
       </Box>
-    </Container>
+    </>
   );
 }
