@@ -1,8 +1,6 @@
 import Header from "@/components/Header";
 import JoinFbCommunity from "@/components/JoinFbCommunity";
 import CodeIcon from "@mui/icons-material/Code";
-import EmailIcon from "@mui/icons-material/Email";
-import FacebookIcon from "@mui/icons-material/Facebook";
 import {
   Box,
   Button,

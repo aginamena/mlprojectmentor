@@ -1,5 +1,5 @@
 import MetaChips from "@/components/Metachips";
-import { Box, Typography, Button } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import ZipFiles from "./ZipFiles";
 
 export default function Introduction() {

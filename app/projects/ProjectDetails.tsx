@@ -1,6 +1,4 @@
-"use client";
-
-import { Box, Button, Grid, Paper, Stack, Typography } from "@mui/material";
+import { Box, Grid, Paper, Stack, Typography } from "@mui/material";
 import ZipFiles from "./ZipFiles";
 
 export default function ProjectDetails() {
