@@ -192,13 +192,12 @@ export default function Home() {
               <CardContent>
                 <CodeIcon sx={{ fontSize: 30, mb: 2, textAlign: "unset" }} />
                 <Typography variant="h6" fontWeight="bold">
-                  Web developers stuck in machine learning tutorial hell who are
-                  ready to start building real projects.
+                  Web developers who know HTML, CSS, and JavaScript and want to
+                  apply their skills to machine learning.
                 </Typography>
               </CardContent>
             </Card>
           </Grid>
-
           <Grid size={{ xs: 12, md: 6 }}>
             <Card
               sx={{
@@ -212,8 +211,8 @@ export default function Home() {
               <CardContent>
                 <CodeIcon sx={{ fontSize: 30, mb: 2, textAlign: "unset" }} />
                 <Typography variant="h6" fontWeight="bold">
-                  Web developers who know HTML, CSS, and JavaScript and want to
-                  apply their skills to machine learning.
+                  Web developers stuck in machine learning tutorial hell who are
+                  ready to start building real projects.
                 </Typography>
               </CardContent>
             </Card>
