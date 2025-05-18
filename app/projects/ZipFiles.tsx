@@ -68,7 +68,20 @@ export default function ZipFiles() {
     <Button
       onClick={generateFile}
       variant="contained"
-      style={{ marginTop: "20px" }}
+      sx={{
+        mt: 3,
+        color: "white",
+        backgroundColor: "#0018FF",
+        textTransform: "none",
+        fontSize: "1rem",
+        fontWeight: "bold",
+        mb: { xs: "50px", md: "0" },
+        borderRadius: "999px",
+        px: 3,
+        py: 1.5,
+
+        "&:hover": { backgroundColor: "#0012cc" },
+      }}
     >
       Download starter files
     </Button>

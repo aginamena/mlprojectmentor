@@ -1,7 +1,8 @@
+import Footer from "@/components/Footer";
 import ThemeRegistry from "@/components/ThemeRegistry";
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import "./globals.css";
-import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: "Machine Learning Project Mentor",
@@ -43,7 +44,10 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <ThemeRegistry>{children}</ThemeRegistry>
+        <ThemeRegistry>
+          {children}
+          <Footer />
+        </ThemeRegistry>
         <Analytics />
       </body>
     </html>

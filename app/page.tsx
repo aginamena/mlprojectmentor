@@ -1,3 +1,5 @@
+import Header from "@/components/Header";
+import JoinFbCommunity from "@/components/JoinFbCommunity";
 import CodeIcon from "@mui/icons-material/Code";
 import EmailIcon from "@mui/icons-material/Email";
 import FacebookIcon from "@mui/icons-material/Facebook";
@@ -62,20 +64,7 @@ export default function Home() {
             background: `linear-gradient(to bottom, rgba(0,0,0,0.4) 30%, rgba(0,0,0,1) 100%)`,
           }}
         />
-        <Box sx={{ display: "flex", position: "relative" }}>
-          <Image
-            src="/logo.png"
-            width={40}
-            height={40}
-            alt="Machine Learning Project Mentor"
-          />
-          <Typography
-            sx={{ fontStyle: "italic", fontWeight: 700, marginLeft: "10px" }}
-          >
-            Machine Learning <br />
-            Project Mentor
-          </Typography>
-        </Box>
+        <Header />
         <Box
           sx={{
             maxWidth: "720px",
@@ -98,16 +87,23 @@ export default function Home() {
             <br />
             Using Just JavaScript!
           </Typography>
-
           <Button
             variant="contained"
-            color="primary"
-            size="large"
-            sx={{ fontWeight: 600, borderRadius: 3 }}
+            sx={{
+              backgroundColor: "#0018FF",
+              color: "#fff",
+              textTransform: "none",
+              fontWeight: 600,
+              px: 4,
+              py: 1.5,
+              borderRadius: "999px",
+              fontSize: "1rem",
+              "&:hover": {
+                backgroundColor: "#0012cc",
+              },
+            }}
           >
-            <Link href="https://forms.gle/BLvR1MQDh88i1LvXA">
-              Start Your First ML Project Now!
-            </Link>
+            <Link href="projects">Start Your First ML Project Now!</Link>
           </Button>
         </Box>
       </Box>
@@ -166,7 +162,7 @@ export default function Home() {
           background: `linear-gradient(
                   135deg,
                   #00F9FF 10%,
-                 #0C00FF 50%,
+                 #0018FF 50%,
                   #00F9FF 100%
                 ) `,
           display: "flex",
@@ -225,26 +221,24 @@ export default function Home() {
             </Card>
           </Grid>
         </Grid>
-
         <Button
           variant="contained"
           sx={{
             mt: 6,
             backgroundColor: "#fff",
             color: "#000",
+            textTransform: "none",
             fontWeight: "bold",
             px: 4,
             py: 1.5,
-            borderRadius: 2,
-            fontSize: 16,
+            borderRadius: "999px",
+            fontSize: "1rem",
             "&:hover": {
               backgroundColor: "#e0e0e0",
             },
           }}
         >
-          <Link href="https://forms.gle/BLvR1MQDh88i1LvXA">
-            Start Your First ML Project Now!
-          </Link>
+          <Link href="projects">Start Your First ML Project Now!</Link>
         </Button>
       </Box>
 
@@ -304,127 +298,25 @@ export default function Home() {
             <Button
               variant="contained"
               sx={{
-                backgroundColor: "#0050FF",
+                backgroundColor: "#0018FF",
                 color: "#fff",
                 textTransform: "none",
-                fontWeight: "bold",
+                fontWeight: 600,
                 px: 4,
                 py: 1.5,
-                borderRadius: "30px",
+                borderRadius: "999px",
+                fontSize: "1rem",
                 "&:hover": {
-                  backgroundColor: "#003FD9",
+                  backgroundColor: "#0012cc",
                 },
               }}
             >
-              <Link href="https://forms.gle/BLvR1MQDh88i1LvXA">
-                Let’s build something real.
-              </Link>
+              <Link href="projects">Let’s build something real</Link>
             </Button>
           </Box>
         </Box>
       </Box>
-
-      <Box
-        sx={{
-          backgroundImage: "url('/joinOurCommunityImage.jpg')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          position: "relative",
-          minHeight: 350,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          px: 2,
-        }}
-      >
-        <Box
-          sx={{
-            position: "absolute",
-            inset: 0,
-            backgroundColor: "rgba(0, 0, 0, 0.7)",
-            zIndex: 1,
-          }}
-        />
-
-        <Box
-          sx={{
-            position: "relative",
-            zIndex: 2,
-            textAlign: "center",
-            color: "#fff",
-            maxWidth: 700,
-            px: 2,
-          }}
-        >
-          <Typography variant="h4" sx={{ fontWeight: "bold", mb: 2 }}>
-            Join Our Community 🚀
-          </Typography>
-          <Typography variant="body1" sx={{ mb: 3 }}>
-            We have an amazing community of builders, where you can
-            <br />
-            connect and collaborate with like minds
-          </Typography>
-          <Button
-            variant="contained"
-            sx={{
-              backgroundColor: "#fff",
-              color: "#000",
-              textTransform: "none",
-              fontWeight: "bold",
-              px: 4,
-              py: 1.5,
-              borderRadius: "12px",
-              fontSize: "1rem",
-              "&:hover": {
-                backgroundColor: "#e5e5e5",
-              },
-            }}
-          >
-            <Link href="https://www.facebook.com/share/g/16ScKkia3h/">
-              Join our Facebook community
-            </Link>
-          </Button>
-        </Box>
-      </Box>
-
-      <Box
-        sx={{
-          py: 8,
-          px: 4,
-          backgroundColor: "#0f0f0f",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-        }}
-      >
-        <Box sx={{ display: "flex" }}>
-          <Image
-            src="/logo.png"
-            width={40}
-            height={40}
-            alt="Machine Learning Project Mentor"
-          />
-          <Typography
-            sx={{ fontStyle: "italic", fontWeight: 700, marginLeft: "10px" }}
-          >
-            Machine Learning <br />
-            Project Mentor
-          </Typography>
-        </Box>
-        <Box sx={{ display: "flex" }}>
-          <Box sx={{ marginRight: "20px" }}>
-            <Link href="mailto:aginamena5@gmail.com">
-              <EmailIcon />
-            </Link>
-          </Box>
-          <Box>
-            <Link href="https://www.facebook.com/share/g/16ScKkia3h/">
-              <FacebookIcon />
-            </Link>
-          </Box>
-        </Box>
-      </Box>
+      <JoinFbCommunity header="Join Our Community 🚀" />
     </>
   );
 }
