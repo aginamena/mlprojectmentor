@@ -21,9 +21,9 @@ export default function Home() {
       image: "/realWorldMachineLearning.jpg",
     },
     {
-      title: "No More Hand Holding",
+      title: "You take the lead",
       description:
-        "Work on projects with no step-by-step instructions on how to complete it.",
+        "Tackle projects on your own, without following detailed instructions.",
       image: "/noMoreHandHolding.jpg",
     },
     {
