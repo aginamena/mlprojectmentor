@@ -14,12 +14,12 @@ export default function ProjectDetails() {
               📄 Background
             </Typography>
           </Stack>
-          <Typography fontSize={14}>
+          <Typography fontSize={15}>
             A nearby hotel is getting many service reviews but lacks staff to
             read them all. You have been hired to build a tool that
             automatically sorts reviews by sentiment—separating negative ones
-            from positive and neutral—so the hotel can assign three staff to
-            each category for follow-up.
+            from positive and neutral—so the hotel can assign staff to each
+            category for follow-up.
           </Typography>
         </Paper>
         <Paper
@@ -35,75 +35,74 @@ export default function ProjectDetails() {
           <Typography fontSize={18} fontWeight={600} mb={2}>
             📋 Requirements
           </Typography>
-          <Box sx={{ pl: 3 }}>
-            <Typography style={{ fontSize: "14px" }}>
-              1. Dashboard Overview:
-              <Box sx={{ pl: 2 }}>
-                <Typography style={{ fontSize: "14px" }}>
-                  a. The dashboard page should display the total number of
-                  reviews, as well as the total number of positive, negative,
-                  and neutral reviews.
-                </Typography>
-              </Box>
-            </Typography>
+          <ol style={{ fontSize: "15px" }}>
+            <li>
+              <strong>Navigation Links</strong>
+              <ul style={{ paddingLeft: 10 }}>
+                <li>There are 4 navigation links:</li>
+                <ul style={{ paddingLeft: 10 }}>
+                  <li>
+                    1. The Dashboard link directs you to the dashboard page
+                  </li>
+                  <li>
+                    2. The Positive, Neutral anf Negative links take you to the
+                    review analysis page when clicked
+                  </li>
+                </ul>
+              </ul>
+            </li>
+            <li style={{ marginTop: 10, marginBottom: 19 }}>
+              <strong>Dashboard page</strong>
+              <ul style={{ paddingLeft: 10 }}>
+                <li>The dashboard should display:</li>
+                <ul style={{ paddingLeft: 10 }}>
+                  <li>1. Total number of reviews</li>
+                  <li>
+                    2. Breakdown of reviews by sentiment positive, neutral and
+                    negative
+                  </li>
+                </ul>
+              </ul>
+            </li>
 
-            <Typography
-              style={{
-                marginTop: "20px",
-                marginBottom: "20px",
-                fontSize: "14px",
-              }}
-            >
-              2. Categorized Pages:
-              <Box sx={{ pl: 2, fontSize: "14px" }}>
-                a. There should be three separate pages:
-                <Typography sx={{ pl: 2, fontSize: "14px" }}>
-                  1. Positive Reviews
-                </Typography>
-                <Typography sx={{ pl: 2, fontSize: "14px" }}>
-                  2. Negative Reviews
-                </Typography>
-                <Typography sx={{ pl: 2, fontSize: "14px" }}>
-                  3. Neutral Reviews
-                </Typography>
-              </Box>
-              <Box sx={{ pl: 2, fontSize: "14px" }}>
-                b. Reviews should automatically be placed in the respective
-                category based on sentiment.
-              </Box>
-            </Typography>
+            <li>
+              <strong>Review analysis Page</strong>
+              <ul style={{ paddingLeft: 10 }}>
+                <li>
+                  When any of the links (Positive, Neutral and Negative) are
+                  clicked, the displayed reviews on the review analysis page
+                  should filter by sentiment. For example, clicking the Positive
+                  link will show only positive reviews, and similarly for
+                  Neutral and Negative links
+                </li>
+              </ul>
+            </li>
 
-            <Typography style={{ marginBottom: "20px", fontSize: "14px" }}>
-              3. Review Details:
-              <Box sx={{ pl: 2, fontSize: "14px" }}>
-                a. Each review should display the following information of the
-                sender:
-                <Typography sx={{ pl: 2, fontSize: "14px" }}>
-                  1. Full name
-                </Typography>
-                <Typography sx={{ pl: 2, fontSize: "14px" }}>
-                  2. Time of submission
-                </Typography>
-                <Typography sx={{ pl: 2, fontSize: "14px" }}>
-                  3. Email address
-                </Typography>
-                <Typography sx={{ pl: 2, fontSize: "14px" }}>
-                  4. Content of the review
-                </Typography>
-                <Typography sx={{ pl: 2, fontSize: "14px" }}>
-                  4. Profile picture
-                </Typography>
-              </Box>
-            </Typography>
-            <Typography style={{ fontSize: "14px" }}>
-              4. Review Management:
-              <Box sx={{ pl: 2, fontSize: "14px" }}>
-                a. Each review should have a Delete button that allows the
-                review to be removed from the page.
-              </Box>
-            </Typography>
-          </Box>
-          <Typography sx={{ marginTop: "15px", fontSize: "14px" }}>
+            <li style={{ marginTop: 10, marginBottom: 19 }}>
+              <strong>Review Details</strong>
+              <ul style={{ paddingLeft: 10 }}>
+                <li>Each review should include the following details:</li>
+                <ul style={{ paddingLeft: 10 }}>
+                  <li>1. Full name of the reviewer</li>
+                  <li>2. Time of submission</li>
+                  <li>3. Email address</li>
+                  <li>4. Content of the review</li>
+                  <li>5. Profile picture of the reviewer</li>
+                </ul>
+              </ul>
+            </li>
+
+            <li>
+              <strong>Review Management </strong>
+              <ul style={{ paddingLeft: 10 }}>
+                <li>
+                  Each review should have a Delete button to allow it to be
+                  removed from the page.
+                </li>
+              </ul>
+            </li>
+          </ol>
+          <Typography sx={{ marginTop: "15px", fontSize: "15px" }}>
             Download the starter files, read the README to get set up, and
             review the Figma designs to understand the visual requirements. Good
             luck!
@@ -118,11 +117,13 @@ export default function ProjectDetails() {
               📦 Starter files
             </Typography>
           </Stack>
-          <Typography style={{ fontSize: "14px" }}>
+          <Typography style={{ fontSize: "15px" }}>
             1. Figma file showing all design requirements
             <br />
             2. README file to get you started <br />
-            3. review.json file containing all the hotel reviews
+            3. reviews.json file containing all the hotel reviews <br />
+            4. HTML, CSS and Javascript files for the dashboard and reviews
+            pages <br />
           </Typography>
         </Paper>
         <Paper
@@ -132,7 +133,7 @@ export default function ProjectDetails() {
           <Typography fontSize={18} fontWeight={600} mb={1}>
             💡 Optional tasks
           </Typography>
-          <Typography fontSize={14}>
+          <Typography fontSize={15}>
             1. Store each review in a database so you can retrieve and sort them
             easily when displaying. <br />
             2. Add a reply button next to the delete button, allowing you to
@@ -157,75 +158,74 @@ export default function ProjectDetails() {
           <Typography fontSize={18} fontWeight={600} mb={2}>
             📋 Requirements
           </Typography>
-          <Box sx={{ pl: 3 }}>
-            <Typography style={{ fontSize: "14px" }}>
-              1. Dashboard Overview:
-              <Box sx={{ pl: 2 }}>
-                <Typography style={{ fontSize: "14px" }}>
-                  a. The dashboard page should display the total number of
-                  reviews, as well as the total number of positive, negative,
-                  and neutral reviews.
-                </Typography>
-              </Box>
-            </Typography>
+          <ol style={{ fontSize: "15px" }}>
+            <li>
+              <strong>Navigation Links</strong>
+              <ul style={{ paddingLeft: 10 }}>
+                <li>There are 4 navigation links:</li>
+                <ul style={{ paddingLeft: 10 }}>
+                  <li>
+                    1. The Dashboard link directs you to the dashboard page
+                  </li>
+                  <li>
+                    2. The Positive, Neutral anf Negative links take you to the
+                    review analysis page when clicked
+                  </li>
+                </ul>
+              </ul>
+            </li>
+            <li style={{ marginTop: 10, marginBottom: 19 }}>
+              <strong>Dashboard page</strong>
+              <ul style={{ paddingLeft: 10 }}>
+                <li>The dashboard should display:</li>
+                <ul style={{ paddingLeft: 10 }}>
+                  <li>1. Total number of reviews</li>
+                  <li>
+                    2. Breakdown of reviews by sentiment positive, neutral and
+                    negative
+                  </li>
+                </ul>
+              </ul>
+            </li>
 
-            <Typography
-              style={{
-                marginTop: "20px",
-                marginBottom: "20px",
-                fontSize: "14px",
-              }}
-            >
-              2. Categorized Pages:
-              <Box sx={{ pl: 2, fontSize: "14px" }}>
-                a. There should be three separate pages:
-                <Typography sx={{ pl: 2, fontSize: "14px" }}>
-                  1. Positive Reviews
-                </Typography>
-                <Typography sx={{ pl: 2, fontSize: "14px" }}>
-                  2. Negative Reviews
-                </Typography>
-                <Typography sx={{ pl: 2, fontSize: "14px" }}>
-                  3. Neutral Reviews
-                </Typography>
-              </Box>
-              <Box sx={{ pl: 2, fontSize: "14px" }}>
-                b. Reviews should automatically be placed in the respective
-                category based on sentiment.
-              </Box>
-            </Typography>
+            <li>
+              <strong>Review analysis Page</strong>
+              <ul style={{ paddingLeft: 10 }}>
+                <li>
+                  When any of the links (Positive, Neutral and Negative) are
+                  clicked, the displayed reviews on the review analysis page
+                  should filter by sentiment. For example, clicking the Positive
+                  link will show only positive reviews, and similarly for
+                  Neutral and Negative links
+                </li>
+              </ul>
+            </li>
 
-            <Typography style={{ marginBottom: "20px", fontSize: "14px" }}>
-              3. Review Details:
-              <Box sx={{ pl: 2, fontSize: "14px" }}>
-                a. Each review should display the following information of the
-                sender:
-                <Typography sx={{ pl: 2, fontSize: "14px" }}>
-                  1. Full name
-                </Typography>
-                <Typography sx={{ pl: 2, fontSize: "14px" }}>
-                  2. Time of submission
-                </Typography>
-                <Typography sx={{ pl: 2, fontSize: "14px" }}>
-                  3. Email address
-                </Typography>
-                <Typography sx={{ pl: 2, fontSize: "14px" }}>
-                  4. Content of the review
-                </Typography>
-                <Typography sx={{ pl: 2, fontSize: "14px" }}>
-                  4. Profile picture
-                </Typography>
-              </Box>
-            </Typography>
-            <Typography style={{ fontSize: "14px" }}>
-              4. Review Management:
-              <Box sx={{ pl: 2, fontSize: "14px" }}>
-                a. Each review should have a Delete button that allows the
-                review to be removed from the page.
-              </Box>
-            </Typography>
-          </Box>
-          <Typography sx={{ marginTop: "15px", fontSize: "14px" }}>
+            <li style={{ marginTop: 10, marginBottom: 19 }}>
+              <strong>Review Details</strong>
+              <ul style={{ paddingLeft: 10 }}>
+                <li>Each review should include the following details:</li>
+                <ul style={{ paddingLeft: 10 }}>
+                  <li>1. Full name of the reviewer</li>
+                  <li>2. Time of submission</li>
+                  <li>3. Email address</li>
+                  <li>4. Content of the review</li>
+                  <li>5. Profile picture of the reviewer</li>
+                </ul>
+              </ul>
+            </li>
+
+            <li>
+              <strong>Review Management </strong>
+              <ul style={{ paddingLeft: 10 }}>
+                <li>
+                  Each review should have a Delete button to allow it to be
+                  removed from the page.
+                </li>
+              </ul>
+            </li>
+          </ol>
+          <Typography sx={{ marginTop: "15px", fontSize: "15px" }}>
             Download the starter files, read the README to get set up, and
             review the Figma designs to understand the visual requirements. Good
             luck!

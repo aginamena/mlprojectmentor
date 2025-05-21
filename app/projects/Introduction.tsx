@@ -23,7 +23,7 @@ export default function Introduction() {
       </Box>
       <Box maxWidth={400}>
         <MetaChips />
-        <Typography fontSize={14} style={{ marginTop: "20px" }}>
+        <Typography fontSize={15} style={{ marginTop: "20px" }}>
           You are free to use any tools to build this project, as long as you
           meet all the given design requirements. Once you’ve completed the
           requirements and want to challenge yourself further, consider working
