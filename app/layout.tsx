@@ -1,6 +1,5 @@
 import Footer from "@/components/Footer";
 import ThemeRegistry from "@/components/ThemeRegistry";
-import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import "./globals.css";
 
@@ -43,12 +42,12 @@ export default function RootLayout({
           }}
         />
       </head>
+
       <body suppressHydrationWarning>
         <ThemeRegistry>
           {children}
           <Footer />
         </ThemeRegistry>
-        <Analytics />
       </body>
     </html>
   );
