@@ -2,7 +2,7 @@ import MetaChips from "@/components/Metachips";
 import { Box, Typography } from "@mui/material";
 import ZipFiles from "./ZipFiles";
 
-export default function Introduction() {
+export default function Introduction({ name }: { name: string }) {
   return (
     <Box
       display="flex"
@@ -16,8 +16,7 @@ export default function Introduction() {
           fontWeight="bold"
           sx={{ fontSize: { xs: "2rem", md: "3rem" } }}
         >
-          Customer <br />
-          Feedback Analysis
+          {name}
         </Typography>
         <ZipFiles />
       </Box>

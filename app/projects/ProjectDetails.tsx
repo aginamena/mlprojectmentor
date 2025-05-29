@@ -1,7 +1,11 @@
 import { Box, Grid, Paper, Stack, Typography } from "@mui/material";
 import ZipFiles from "./ZipFiles";
 
-export default function ProjectDetails() {
+export default function ProjectDetails({
+  requirements,
+}: {
+  requirements: string;
+}) {
   return (
     <Grid container spacing={3} sx={{ p: { xs: 2, md: 4 } }}>
       <Grid size={{ xs: 12, md: 6 }}>
@@ -158,7 +162,7 @@ export default function ProjectDetails() {
           <Typography fontSize={18} fontWeight={600} mb={2}>
             📋 Requirements
           </Typography>
-          <ol style={{ fontSize: "15px" }}>
+          {/* <ol style={{ fontSize: "15px" }}>
             <li>
               <strong>Navigation Links</strong>
               <ul style={{ paddingLeft: 10 }}>
@@ -224,7 +228,8 @@ export default function ProjectDetails() {
                 </li>
               </ul>
             </li>
-          </ol>
+          </ol> */}
+          <pre style={{ fontSize: "15px" }}>{requirements}</pre>
           <Typography sx={{ marginTop: "15px", fontSize: "15px" }}>
             Download the starter files, read the README to get set up, and
             review the Figma designs to understand the visual requirements. Good
