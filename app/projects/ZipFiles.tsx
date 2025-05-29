@@ -20,8 +20,8 @@ export default function ZipFiles() {
 
     //adding image files
     const sub = zip.folder("images");
-    const thumbnail = await fetch("/project_thumbnail.png");
-    const thumbnailBlob = await thumbnail.blob();
+    const dashboardImg = await fetch("/dashboard.png");
+    const dashboardImgBlob = await dashboardImg.blob();
     const positiveReviews = await fetch("/positive_reviews.png");
     const positiveReviewsBlob = await positiveReviews.blob();
     const neutralReviews = await fetch("/neutral_reviews.png");
@@ -29,7 +29,7 @@ export default function ZipFiles() {
     const negativeReviews = await fetch("/negative_reviews.png");
     const negativeReviewsBlob = await negativeReviews.blob();
     if (sub) {
-      sub.file("thumbnail.png", thumbnailBlob);
+      sub.file("dashboard.png", dashboardImgBlob);
       sub.file("positive_reviews.png", positiveReviewsBlob);
       sub.file("neutral_reviews.png", neutralReviewsBlob);
       sub.file("negative_reviews.png", negativeReviewsBlob);
