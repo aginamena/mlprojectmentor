@@ -45,7 +45,7 @@ export default function ProjectDetails() {
                     1. The Dashboard link directs you to the dashboard page
                   </li>
                   <li>
-                    2. The Positive, Neutral anf Negative links take you to the
+                    2. The Positive, Neutral and Negative links take you to the
                     review analysis page when clicked
                   </li>
                 </ul>
@@ -168,7 +168,7 @@ export default function ProjectDetails() {
                     1. The Dashboard link directs you to the dashboard page
                   </li>
                   <li>
-                    2. The Positive, Neutral anf Negative links take you to the
+                    2. The Positive, Neutral and Negative links take you to the
                     review analysis page when clicked
                   </li>
                 </ul>

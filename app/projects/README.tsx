@@ -7,11 +7,11 @@ Thank you for starting this exciting project! The **Machine Learning Project Men
 
 By the end of this project, it will be yours to showcase! 🎉 You can add it to your portfolio, share it on LinkedIn, or even in our community for other developers to check out and give feedback. Let’s get started! 💻
 
-![Project Preview](/images/thumbnail.png)
+![Project Preview](/images/dashboard.png)
 
 ## Project Overview 📝
 
-The main objective is to build a solution that mirrors the [Figma design](https://www.figma.com/design/NhPeLYfxm18Cdj6HSdMgDg/Customer-feedback-analysis?node-id=0-1&t=AsuP370a9EGUvJqL-1) as closely as possible. We suggest reviewing the Figma design files first so you can plan your approach efficiently.
+The main objective is to build a solution that mirrors the [Figma design](https://www.figma.com/design/6elGKEjobPOScDFD48CPOl/MACHINE-LEARNING-PROJECT-MENTOR-PROJECTS?node-id=0-1&t=8VMuMLE51k0oFr2g-1) as closely as possible. We suggest reviewing the Figma design files first so you can plan your approach efficiently.
 
 ### Background 🌍
 
