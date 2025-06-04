@@ -1,12 +1,12 @@
 "use client";
-import { db } from "@/lib/firebase";
+
 import { useUser } from "@auth0/nextjs-auth0";
 import LockIcon from "@mui/icons-material/Lock";
 import { Button } from "@mui/material";
 import { saveAs } from "file-saver";
-import { doc, getDoc } from "firebase/firestore";
 import JSZip from "jszip";
 import { useRouter } from "next/navigation";
+import { getStarterFiles } from "./util";
 
 export default function ZipFiles({ images }: { images: string[] }) {
   const { user } = useUser();
@@ -14,18 +14,9 @@ export default function ZipFiles({ images }: { images: string[] }) {
 
   async function generateZipFolder() {
     const zip = new JSZip();
-    const docRef = doc(
-      db,
-      "downloadable starter files",
-      "customer feedback analysis"
-    );
-    const docSnap = await getDoc(docRef);
-
-    if (docSnap.exists()) {
-      const starterFiles = docSnap.data();
-      for (const starterFile in starterFiles) {
-        zip.file(`${starterFile}`, starterFiles[starterFile]);
-      }
+    const starterFiles = await getStarterFiles();
+    for (const starterFile in starterFiles) {
+      zip.file(`${starterFile}`, starterFiles[starterFile]);
     }
 
     //adding image files
@@ -43,6 +34,7 @@ export default function ZipFiles({ images }: { images: string[] }) {
     const content = await zip.generateAsync({ type: "blob" });
     saveAs(content, "customer_feedback_analysis.zip");
   }
+
   if (!user) {
     return (
       <Button
