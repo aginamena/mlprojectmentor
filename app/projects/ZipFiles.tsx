@@ -1,57 +1,45 @@
 "use client";
+import { db } from "@/lib/firebase";
 import { useUser } from "@auth0/nextjs-auth0";
-import { faker } from "@faker-js/faker";
 import LockIcon from "@mui/icons-material/Lock";
 import { Button } from "@mui/material";
-import dateFormat from "dateformat";
 import { saveAs } from "file-saver";
+import { doc, getDoc } from "firebase/firestore";
 import JSZip from "jszip";
 import { useRouter } from "next/navigation";
-import { dashboard, reviews } from "./pages";
-import { readme } from "./README";
-import { hotelReviews } from "./reviews";
 
-export default function ZipFiles() {
+export default function ZipFiles({ images }: { images: string[] }) {
   const { user } = useUser();
   const router = useRouter();
 
   async function generateZipFolder() {
     const zip = new JSZip();
+    const docRef = doc(
+      db,
+      "downloadable starter files",
+      "customer feedback analysis"
+    );
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+      const starterFiles = docSnap.data();
+      for (const starterFile in starterFiles) {
+        zip.file(`${starterFile}`, starterFiles[starterFile]);
+      }
+    }
 
     //adding image files
     const sub = zip.folder("images");
-    const dashboardImg = await fetch("/dashboard.png");
-    const dashboardImgBlob = await dashboardImg.blob();
-    const positiveReviews = await fetch("/positive_reviews.png");
-    const positiveReviewsBlob = await positiveReviews.blob();
-    const neutralReviews = await fetch("/neutral_reviews.png");
-    const neutralReviewsBlob = await neutralReviews.blob();
-    const negativeReviews = await fetch("/negative_reviews.png");
-    const negativeReviewsBlob = await negativeReviews.blob();
-    if (sub) {
-      sub.file("dashboard.png", dashboardImgBlob);
-      sub.file("positive_reviews.png", positiveReviewsBlob);
-      sub.file("neutral_reviews.png", neutralReviewsBlob);
-      sub.file("negative_reviews.png", negativeReviewsBlob);
-    }
+    await Promise.all(
+      images.map(async (image) => {
+        const splittedLink = image.split("/");
+        const fileName = splittedLink[splittedLink.length - 1];
+        const img = await fetch(image);
+        const blob = await img.blob();
+        if (sub) sub.file(`${fileName}`, blob);
+      })
+    );
 
-    const fakedReviews = hotelReviews.map((review) => ({
-      name: faker.internet.username(),
-      date: dateFormat(faker.date.past(), "mediumDate", true),
-      email: faker.internet.email(),
-      content: review,
-      profile: faker.image.avatar(),
-    }));
-
-    zip.file("reviews.json", JSON.stringify(fakedReviews));
-    zip.file("index.html", dashboard);
-    zip.file("reviews.html", reviews);
-    zip.file("README.md", readme);
-    zip.file("style.css", "");
-    zip.file("script.js", "");
-    zip.file("reviews.js", "");
-
-    // Generate zip and download
     const content = await zip.generateAsync({ type: "blob" });
     saveAs(content, "customer_feedback_analysis.zip");
   }
