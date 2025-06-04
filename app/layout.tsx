@@ -31,13 +31,15 @@ export default function RootLayout({
         <script
           dangerouslySetInnerHTML={{
             __html: `
-              window._mfq = window._mfq || [];
-              (function() {
-                var mf = document.createElement("script");
-                mf.type = "text/javascript"; mf.defer = true;
-                mf.src = "//cdn.mouseflow.com/projects/ca4cfed4-6a6a-432f-a314-8f5e72121039.js";
-                document.getElementsByTagName("head")[0].appendChild(mf);
-              })();
+        (function (c, s, q, u, a, r, e) {
+        c.hj=c.hj||function(){(c.hj.q=c.hj.q||[]).push(arguments)};
+        c._hjSettings = { hjid: a };
+        r = s.getElementsByTagName('head')[0];
+        e = s.createElement('script');
+        e.async = true;
+        e.src = q + c._hjSettings.hjid + u;
+        r.appendChild(e);
+    })(window, document, 'https://static.hj.contentsquare.net/c/csq-', '.js', 6396330);
             `,
           }}
         />
