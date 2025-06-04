@@ -1,6 +1,12 @@
 import { Box, Typography, Stack } from "@mui/material";
 
-export default function MetaChips() {
+export default function MetaChips({
+  model,
+  difficulty,
+}: {
+  model: string;
+  difficulty: string;
+}) {
   return (
     <Stack direction="row" spacing={2}>
       <Box display="flex" alignItems="center">
@@ -32,7 +38,7 @@ export default function MetaChips() {
             fontSize: "0.75rem",
           }}
         >
-          Sentiment
+          {model}
         </Typography>
       </Box>
       <Box display="flex" alignItems="center">
@@ -64,7 +70,7 @@ export default function MetaChips() {
             fontSize: "0.75rem",
           }}
         >
-          Easy
+          {difficulty}
         </Typography>
       </Box>
     </Stack>

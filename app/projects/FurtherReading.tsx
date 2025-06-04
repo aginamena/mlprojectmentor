@@ -1,7 +1,13 @@
 import { Box, Typography, Button } from "@mui/material";
 import Link from "next/link";
 
-export default function FurtherReading() {
+export default function FurtherReading({
+  required_reading_link,
+  model,
+}: {
+  required_reading_link: string;
+  model: string;
+}) {
   return (
     <Box
       sx={{
@@ -33,7 +39,7 @@ export default function FurtherReading() {
         }}
       >
         Not Sure How <br />
-        Sentiment Models Work?
+        {model} Models Work?
       </Typography>
 
       <Button
@@ -52,9 +58,7 @@ export default function FurtherReading() {
           },
         }}
       >
-        <Link href="https://docs.ml5js.org/#/reference/sentiment">
-          Read this explanation
-        </Link>
+        <Link href={required_reading_link}>Read this explanation</Link>
       </Button>
     </Box>
   );

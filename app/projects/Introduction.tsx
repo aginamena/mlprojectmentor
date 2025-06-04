@@ -2,7 +2,17 @@ import MetaChips from "@/components/Metachips";
 import { Box, Typography } from "@mui/material";
 import ZipFiles from "./ZipFiles";
 
-export default function Introduction() {
+export default function Introduction({
+  name,
+  model,
+  difficulty,
+  images,
+}: {
+  name: string;
+  model: string;
+  difficulty: string;
+  images: string[];
+}) {
   return (
     <Box
       display="flex"
@@ -16,13 +26,12 @@ export default function Introduction() {
           fontWeight="bold"
           sx={{ fontSize: { xs: "2rem", md: "3rem" } }}
         >
-          Customer <br />
-          Feedback Analysis
+          {name}
         </Typography>
-        <ZipFiles />
+        <ZipFiles images={images} />
       </Box>
       <Box maxWidth={400}>
-        <MetaChips />
+        <MetaChips model={model} difficulty={difficulty} />
         <Typography fontSize={15} style={{ marginTop: "20px" }}>
           You are free to use any tools to build this project, as long as you
           meet all the given design requirements. Once you’ve completed the
