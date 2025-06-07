@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import React, { useState } from "react";
 import { Box, ToggleButtonGroup, ToggleButton } from "@mui/material";
 import ImageGallery from "react-image-gallery";
 
@@ -45,7 +45,10 @@ export default function Gallary({
 }) {
   const [device, setDevice] = useState("desktop");
 
-  const handleChange = (_, newDevice: string) => {
+  const handleChange = (
+    _event: React.MouseEvent<HTMLElement>,
+    newDevice: string
+  ) => {
     if (newDevice !== null) {
       setDevice(newDevice);
     }
