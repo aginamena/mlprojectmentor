@@ -7,12 +7,15 @@ import { saveAs } from "file-saver";
 import JSZip from "jszip";
 import { useRouter } from "next/navigation";
 import { getStarterFiles } from "./util";
+import { useState } from "react";
 
 export default function ZipFiles({ images }: { images: string[] }) {
   const { user } = useUser();
   const router = useRouter();
+  const [state, setState] = useState("Download starter files");
 
   async function generateZipFolder() {
+    setState("Downloading starter files...");
     const zip = new JSZip();
     const starterFiles = await getStarterFiles();
     for (const starterFile in starterFiles) {
@@ -32,7 +35,12 @@ export default function ZipFiles({ images }: { images: string[] }) {
     );
 
     const content = await zip.generateAsync({ type: "blob" });
-    saveAs(content, "customer_feedback_analysis.zip");
+    const splittedLink = images[0].split("/");
+    const folderName = splittedLink[splittedLink.length - 2]
+      .toLowerCase()
+      .replaceAll("%20", "_");
+    saveAs(content, `${folderName}.zip`);
+    setState("Downloaded starter files");
   }
 
   if (!user) {
@@ -79,7 +87,7 @@ export default function ZipFiles({ images }: { images: string[] }) {
         "&:hover": { backgroundColor: "#0012cc" },
       }}
     >
-      Download starter files
+      {state}
     </Button>
   );
 }

@@ -7,20 +7,23 @@ export default function Introduction({
   model,
   difficulty,
   images,
+  access,
 }: {
   name: string;
   model: string;
   difficulty: string;
   images: string[];
+  access: string;
 }) {
   return (
     <Box
-      display="flex"
-      justifyContent="space-between"
-      flexWrap="wrap"
-      style={{ marginBottom: "60px" }}
+      sx={{
+        justifyContent: "space-between",
+        marginBottom: "60px",
+        display: { xs: "column", md: "flex" },
+      }}
     >
-      <Box>
+      <Box maxWidth={500}>
         <Typography
           variant="h3"
           fontWeight="bold"
@@ -30,8 +33,8 @@ export default function Introduction({
         </Typography>
         <ZipFiles images={images} />
       </Box>
-      <Box maxWidth={400}>
-        <MetaChips model={model} difficulty={difficulty} />
+      <Box maxWidth={500}>
+        <MetaChips model={model} difficulty={difficulty} access={access} />
         <Typography fontSize={15} style={{ marginTop: "20px" }}>
           You are free to use any tools to build this project, as long as you
           meet all the given design requirements. Once you’ve completed the

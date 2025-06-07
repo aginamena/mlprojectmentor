@@ -9,7 +9,8 @@ import Introduction from "./Introduction";
 import ProjectDetails from "./ProjectDetails";
 
 export default async function Projects() {
-  let images: string[] = [];
+  let desktop_images: string[] = [];
+  let mobile_images: string[] = [];
   let name = "";
   let requirements = "";
   let background = "";
@@ -18,13 +19,15 @@ export default async function Projects() {
   let required_reading_link = "";
   let difficulty = "";
   let model = "";
+  let access = "";
 
   const docRef = doc(db, "projects", "customer feedback analysis");
   const docSnap = await getDoc(docRef);
 
   if (docSnap.exists()) {
     const data = docSnap.data();
-    images = data.images;
+    desktop_images = data.desktop_images;
+    mobile_images = data.mobile_images;
     name = data.name;
     requirements = data.requirements;
     background = data.background;
@@ -32,6 +35,7 @@ export default async function Projects() {
     optional_tasks = data.optional_tasks;
     difficulty = data.difficulty;
     model = data.model;
+    access = data.access;
     required_reading_link = data.required_reading_link;
   }
 
@@ -45,15 +49,19 @@ export default async function Projects() {
           name={name}
           model={model}
           difficulty={difficulty}
-          images={images}
+          images={[...desktop_images, ...mobile_images]}
+          access={access}
         />
-        <Gallary images={images} />
+        <Gallary
+          desktop_images={desktop_images}
+          mobile_images={mobile_images}
+        />
         <ProjectDetails
           requirements={requirements}
           background={background}
           starter_files={starter_files}
           optional_tasks={optional_tasks}
-          images={images}
+          images={[...desktop_images, ...mobile_images]}
         />
       </Container>
       <FurtherReading
