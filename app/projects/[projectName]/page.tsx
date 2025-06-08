@@ -9,9 +9,9 @@ import ProjectDetails from "./ProjectDetails";
 export default async function ProjectDetail({
   params,
 }: {
-  params: { projectName: string };
+  params: Promise<{ projectName: string }>;
 }) {
-  const { projectName } = params;
+  const { projectName } = await params;
 
   let desktop_images: string[] = [];
   let mobile_images: string[] = [];

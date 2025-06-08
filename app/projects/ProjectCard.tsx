@@ -18,7 +18,7 @@ export default function ProjectCard({
   thumbnail: string;
 }) {
   return (
-    <Link href={`projects/${name}`}>
+    <Link href={`projects/${name.toLowerCase().replaceAll(" ", "_")}`}>
       <Box sx={{ position: "relative" }}>
         <Box
           sx={{
