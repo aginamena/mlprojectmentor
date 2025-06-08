@@ -17,7 +17,9 @@ export default function ZipFiles({ images }: { images: string[] }) {
   async function generateZipFolder() {
     setState("Downloading starter files...");
     const zip = new JSZip();
-    const starterFiles = await getStarterFiles();
+    const splittedLink = images[0].split("/");
+    const folderName = splittedLink[splittedLink.length - 2];
+    const starterFiles = await getStarterFiles(folderName);
     for (const starterFile in starterFiles) {
       zip.file(`${starterFile}`, starterFiles[starterFile]);
     }
@@ -35,10 +37,6 @@ export default function ZipFiles({ images }: { images: string[] }) {
     );
 
     const content = await zip.generateAsync({ type: "blob" });
-    const splittedLink = images[0].split("/");
-    const folderName = splittedLink[splittedLink.length - 2]
-      .toLowerCase()
-      .replaceAll("%20", "_");
     saveAs(content, `${folderName}.zip`);
     setState("Downloaded starter files");
   }

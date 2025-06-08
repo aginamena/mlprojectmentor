@@ -26,10 +26,7 @@ export default function ProjectDetails({
               📄 Background
             </Typography>
           </Stack>
-          <Box
-            dangerouslySetInnerHTML={{ __html: background }}
-            style={{ fontSize: "15px" }}
-          />
+          <Typography style={{ fontSize: "15px" }}>{background}</Typography>
         </Paper>
         <Paper
           elevation={3}

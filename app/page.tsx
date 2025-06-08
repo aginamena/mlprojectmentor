@@ -48,8 +48,6 @@ export default function Home() {
           height: "700px",
           backgroundImage: 'url("/introduction-image.jpg")',
           backgroundSize: "cover",
-          py: 8,
-          px: 4,
         }}
       >
         <Box
@@ -69,6 +67,7 @@ export default function Home() {
             position: "absolute",
             top: "50%",
             transform: "translate(0, -10%)",
+            px: 4,
           }}
         >
           <Typography

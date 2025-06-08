@@ -1,3 +1,4 @@
+import { getDifficultyBorderColor } from "@/app/projects/util";
 import { Box, Typography, Stack } from "@mui/material";
 
 export default function MetaChips({
@@ -60,7 +61,7 @@ export default function MetaChips({
         <Typography
           variant="body2"
           sx={{
-            backgroundColor: "#0892C9",
+            backgroundColor: getDifficultyBorderColor(difficulty),
             color: "#fff",
             px: 1.5,
             py: 0.5,

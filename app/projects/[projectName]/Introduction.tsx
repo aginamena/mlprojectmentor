@@ -27,6 +27,7 @@ export default function Introduction({
         <Typography
           variant="h3"
           fontWeight="bold"
+          textTransform="capitalize"
           sx={{ fontSize: { xs: "2rem", md: "3rem" } }}
         >
           {name}
