@@ -14,11 +14,11 @@ export default function ZipFiles({ images }: { images: string[] }) {
   const router = useRouter();
   const [state, setState] = useState("Download starter files");
 
+  const splittedLink = images[0].split("/");
+  const folderName = splittedLink[splittedLink.length - 2];
   async function generateZipFolder() {
     setState("Downloading starter files...");
     const zip = new JSZip();
-    const splittedLink = images[0].split("/");
-    const folderName = splittedLink[splittedLink.length - 2];
     const starterFiles = await getStarterFiles(folderName);
     for (const starterFile in starterFiles) {
       zip.file(`${starterFile}`, starterFiles[starterFile]);
@@ -44,7 +44,9 @@ export default function ZipFiles({ images }: { images: string[] }) {
   if (!user) {
     return (
       <Button
-        onClick={() => router.push("../auth/login?returnTo=/projects")}
+        onClick={() =>
+          router.push(`../auth/login?returnTo=/projects/${folderName}`)
+        }
         variant="contained"
         sx={{
           mt: 3,
