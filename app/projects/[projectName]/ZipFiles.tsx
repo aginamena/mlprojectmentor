@@ -8,18 +8,26 @@ import JSZip from "jszip";
 import { useRouter } from "next/navigation";
 import { getStarterFiles } from "./util";
 import { useState } from "react";
+import { useParams } from "next/navigation";
 
-export default function ZipFiles({ images }: { images: string[] }) {
+export default function ZipFiles() {
   const { user } = useUser();
   const router = useRouter();
+  const params = useParams();
   const [state, setState] = useState("Download starter files");
+  const projectName = params.projectName as string;
 
   async function generateZipFolder() {
     setState("Downloading starter files...");
     const zip = new JSZip();
-    const starterFiles = await getStarterFiles();
+
+    const starterFiles = await getStarterFiles(projectName);
+    const images = [];
     for (const starterFile in starterFiles) {
-      zip.file(`${starterFile}`, starterFiles[starterFile]);
+      const value = starterFiles[starterFile];
+      if (Array.isArray(value)) images.push(...value);
+      else if (starterFile == "thumbnail") images.push(value);
+      else zip.file(`${starterFile}`, value);
     }
 
     //adding image files
@@ -35,18 +43,16 @@ export default function ZipFiles({ images }: { images: string[] }) {
     );
 
     const content = await zip.generateAsync({ type: "blob" });
-    const splittedLink = images[0].split("/");
-    const folderName = splittedLink[splittedLink.length - 2]
-      .toLowerCase()
-      .replaceAll("%20", "_");
-    saveAs(content, `${folderName}.zip`);
+    saveAs(content, `${projectName}.zip`);
     setState("Downloaded starter files");
   }
 
   if (!user) {
     return (
       <Button
-        onClick={() => router.push("../auth/login?returnTo=/projects")}
+        onClick={() =>
+          router.push(`../auth/login?returnTo=/projects/${projectName}`)
+        }
         variant="contained"
         sx={{
           mt: 3,

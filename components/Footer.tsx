@@ -10,8 +10,7 @@ export default function Footer() {
       sx={{
         py: 8,
         px: 4,
-        backgroundColor: "#0f0f0f",
-        display: "flex",
+        display: { xs: "column", sm: "flex" },
         alignItems: "center",
         justifyContent: "space-between",
       }}
@@ -26,20 +25,26 @@ export default function Footer() {
         <Typography
           sx={{ fontStyle: "italic", fontWeight: 700, marginLeft: "10px" }}
         >
-          Machine Learning <br />
-          Project Mentor
+          <Link href="/">
+            Machine Learning
+            <br />
+            Project Mentor
+          </Link>
         </Typography>
       </Box>
-      <Box sx={{ display: "flex" }}>
-        <Box sx={{ marginRight: "20px" }}>
-          <Link href="mailto:aginamena5@gmail.com">
-            <EmailIcon />
-          </Link>
-        </Box>
-        <Box>
-          <Link href="https://www.facebook.com/share/g/16ScKkia3h/">
-            <FacebookIcon />
-          </Link>
+      <Box sx={{ marginTop: { xs: "30px", sm: "0" } }}>
+        <Typography>Contact us</Typography>
+        <Box sx={{ display: "flex" }}>
+          <Box sx={{ marginRight: "20px" }}>
+            <Link href="mailto:aginamena5@gmail.com">
+              <EmailIcon />
+            </Link>
+          </Box>
+          <Box>
+            <Link href="https://www.facebook.com/share/g/16ScKkia3h/">
+              <FacebookIcon />
+            </Link>
+          </Box>
         </Box>
       </Box>
     </Box>

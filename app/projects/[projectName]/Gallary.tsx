@@ -43,7 +43,7 @@ export default function Gallary({
   desktop_images: string[];
   mobile_images: string[];
 }) {
-  const [device, setDevice] = useState("desktop");
+  const [device, setDevice] = useState("Desktop");
 
   const handleChange = (
     _event: React.MouseEvent<HTMLElement>,

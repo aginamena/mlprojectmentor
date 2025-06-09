@@ -6,13 +6,11 @@ export default function Introduction({
   name,
   model,
   difficulty,
-  images,
   access,
 }: {
   name: string;
   model: string;
   difficulty: string;
-  images: string[];
   access: string;
 }) {
   return (
@@ -27,11 +25,12 @@ export default function Introduction({
         <Typography
           variant="h3"
           fontWeight="bold"
+          textTransform="capitalize"
           sx={{ fontSize: { xs: "2rem", md: "3rem" } }}
         >
           {name}
         </Typography>
-        <ZipFiles images={images} />
+        <ZipFiles />
       </Box>
       <Box maxWidth={500}>
         <MetaChips model={model} difficulty={difficulty} access={access} />
