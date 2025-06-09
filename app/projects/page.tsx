@@ -10,23 +10,14 @@ type Project = {
   name: string;
   difficulty: string;
   thumbnail: string;
-  desktop_images: string[];
-  // Add any other properties your project objects have
 };
 export default async function Projects() {
   const projects: Project[] = [];
   const querySnapshot = await getDocs(collection(db, "projects"));
 
   querySnapshot.forEach((doc) => {
-    const {
-      access,
-      background,
-      model,
-      name,
-      difficulty,
-      thumbnail,
-      desktop_images,
-    } = doc.data();
+    const { access, background, model, name, difficulty, thumbnail } =
+      doc.data();
     projects.push({
       access,
       background,
@@ -34,7 +25,6 @@ export default async function Projects() {
       name,
       difficulty,
       thumbnail,
-      desktop_images,
     });
   });
 
@@ -70,7 +60,7 @@ export default async function Projects() {
               model={project.model}
               name={project.name}
               difficulty={project.difficulty}
-              thumbnail={project.desktop_images[0]}
+              thumbnail={project.thumbnail}
             />
           </Grid>
         ))}

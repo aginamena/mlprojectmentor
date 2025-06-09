@@ -50,7 +50,6 @@ export default async function ProjectDetail({
           name={name}
           model={model}
           difficulty={difficulty}
-          images={[...desktop_images, ...mobile_images]}
           access={access}
         />
         <Gallary
@@ -62,7 +61,6 @@ export default async function ProjectDetail({
           background={background}
           starter_files={starter_files}
           optional_tasks={optional_tasks}
-          images={[...desktop_images, ...mobile_images]}
         />
       </Container>
       <FurtherReading
