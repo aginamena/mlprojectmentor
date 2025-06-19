@@ -25,9 +25,7 @@ export default function Introduction() {
       </Typography>
 
       <Typography variant="body2" color="gray" mb={3}>
-        Welcome to the tutorials section! We are glad to have you here. We have
-        gathered everything you need to start building machine learning
-        applications.
+        Welcome to the tutorials section! We are glad to have you here.
       </Typography>
       <Stats />
     </Box>

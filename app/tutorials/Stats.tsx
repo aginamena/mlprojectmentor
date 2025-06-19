@@ -19,7 +19,7 @@ export default function Stats() {
             Duration
           </Typography>
           <Typography variant="h6" fontWeight="bold">
-            50 Mins
+            45 Mins
           </Typography>
         </Stack>
       </Box>
