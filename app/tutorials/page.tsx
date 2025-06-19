@@ -28,6 +28,14 @@ const tutorials = [
           "A quick guide on how to follow along and make the most out of these tutorials.",
         premium: false,
         tutorial_name: "getting_the_most_from_these_tutorials",
+        next_tutorial: "how_these_tutorials_are_organized",
+      },
+      {
+        title: "How These Tutorials Are Organized",
+        description:
+          "See how these tutorials are designed to guide your learning step by step",
+        premium: false,
+        tutorial_name: "how_these_tutorials_are_organized",
         next_tutorial: "machine_learning_or_artificial_intelligence",
       },
       {
