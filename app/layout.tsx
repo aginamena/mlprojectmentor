@@ -20,6 +20,16 @@ export const metadata: Metadata = {
   },
 };
 
+// hotjar:
+//    (function (c, s, q, u, a, r, e) {
+//         c.hj=c.hj||function(){(c.hj.q=c.hj.q||[]).push(arguments)};
+//         c._hjSettings = { hjid: a };
+//         r = s.getElementsByTagName('head')[0];
+//         e = s.createElement('script');
+//         e.async = true;
+//         e.src = q + c._hjSettings.hjid + u;
+//         r.appendChild(e);
+//     })(window, document, 'https://static.hj.contentsquare.net/c/csq-', '.js', 6396330);
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -31,15 +41,13 @@ export default function RootLayout({
         <script
           dangerouslySetInnerHTML={{
             __html: `
-        (function (c, s, q, u, a, r, e) {
-        c.hj=c.hj||function(){(c.hj.q=c.hj.q||[]).push(arguments)};
-        c._hjSettings = { hjid: a };
-        r = s.getElementsByTagName('head')[0];
-        e = s.createElement('script');
-        e.async = true;
-        e.src = q + c._hjSettings.hjid + u;
-        r.appendChild(e);
-    })(window, document, 'https://static.hj.contentsquare.net/c/csq-', '.js', 6396330);
+  window._mfq = window._mfq || [];
+  (function() {
+    var mf = document.createElement("script");
+    mf.type = "text/javascript"; mf.defer = true;
+    mf.src = "//cdn.mouseflow.com/projects/b59ea57b-d006-4839-8915-5ac195d5675a.js";
+    document.getElementsByTagName("head")[0].appendChild(mf);
+  })();
             `,
           }}
         />
