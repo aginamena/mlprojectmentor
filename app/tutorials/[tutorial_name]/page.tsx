@@ -1,4 +1,7 @@
-import { getDocumentDataInCollection } from "@/lib/databaseQuery";
+import {
+  createUserProfileIfNotCreated,
+  getDocumentDataInCollection,
+} from "@/lib/databaseQuery";
 import { Box, Button, Container, Typography } from "@mui/material";
 import Link from "next/link";
 import { Content } from "./Content";
@@ -16,6 +19,8 @@ export default async function Tutorial({
   params: Promise<{ tutorial_name: string }>;
 }) {
   const { tutorial_name } = await params;
+  await createUserProfileIfNotCreated(`/tutorials/${tutorial_name}`);
+
   const content = await getDocumentDataInCollection("tutorials", tutorial_name);
   if (!content) {
     return (
