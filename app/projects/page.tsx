@@ -1,32 +1,9 @@
-import { db } from "@/lib/firebase";
+import { getAllDocumentsDataInCollection } from "@/lib/databaseQuery";
 import { Container, Grid, Typography } from "@mui/material";
-import { collection, getDocs } from "firebase/firestore";
 import ProjectCard from "./ProjectCard";
 
-type Project = {
-  access: string;
-  background: string;
-  model: string;
-  name: string;
-  difficulty: string;
-  thumbnail: string;
-};
 export default async function Projects() {
-  const projects: Project[] = [];
-  const querySnapshot = await getDocs(collection(db, "projects"));
-
-  querySnapshot.forEach((doc) => {
-    const { access, background, model, name, difficulty, thumbnail } =
-      doc.data();
-    projects.push({
-      access,
-      background,
-      model,
-      name,
-      difficulty,
-      thumbnail,
-    });
-  });
+  const projects = await getAllDocumentsDataInCollection("projects");
 
   return (
     <Container style={{ paddingTop: "40px", paddingBottom: "40px" }}>

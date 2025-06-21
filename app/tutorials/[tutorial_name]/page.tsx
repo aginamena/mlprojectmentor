@@ -1,6 +1,5 @@
-import { db } from "@/lib/firebase";
-import { Box, Button, Container } from "@mui/material";
-import { doc, getDoc } from "firebase/firestore";
+import { getDocumentDataInCollection } from "@/lib/databaseQuery";
+import { Box, Button, Container, Typography } from "@mui/material";
 import Link from "next/link";
 import { Content } from "./Content";
 
@@ -17,14 +16,18 @@ export default async function Tutorial({
   params: Promise<{ tutorial_name: string }>;
 }) {
   const { tutorial_name } = await params;
-  const docRef = doc(db, "tutorials", tutorial_name);
-  const docSnap = await getDoc(docRef);
-  let content: UIComponentNode = { type: "" };
-  if (docSnap.exists()) content = docSnap.data() as UIComponentNode;
+  const content = await getDocumentDataInCollection("tutorials", tutorial_name);
+  if (!content) {
+    return (
+      <Container>
+        <Typography>Ooops! This tutorial can not be found</Typography>
+      </Container>
+    );
+  }
 
   return (
     <Container style={{ marginBottom: "100px" }}>
-      <Content node={content} />
+      <Content node={content as UIComponentNode} />
       {content.next_tutorial && (
         <Box sx={{ textAlign: "center" }}>
           <Button

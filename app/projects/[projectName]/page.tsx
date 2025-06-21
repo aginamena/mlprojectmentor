@@ -1,6 +1,5 @@
-import { db } from "@/lib/firebase";
+import { getDocumentDataInCollection } from "@/lib/databaseQuery";
 import { Container } from "@mui/material";
-import { doc, getDoc } from "firebase/firestore";
 import FurtherReading from "./FurtherReading";
 import Gallary from "./Gallary";
 import Introduction from "./Introduction";
@@ -25,11 +24,9 @@ export default async function ProjectDetail({
   let model = "";
   let access = "";
 
-  const docRef = doc(db, "projects", projectName);
-  const docSnap = await getDoc(docRef);
+  const data = await getDocumentDataInCollection("projects", projectName);
 
-  if (docSnap.exists()) {
-    const data = docSnap.data();
+  if (data) {
     desktop_images = data.desktop_images;
     mobile_images = data.mobile_images;
     name = data.name;

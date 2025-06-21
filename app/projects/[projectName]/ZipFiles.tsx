@@ -1,14 +1,13 @@
 "use client";
 
+import { getDocumentDataInCollection } from "@/lib/databaseQuery";
 import { useUser } from "@auth0/nextjs-auth0";
 import LockIcon from "@mui/icons-material/Lock";
 import { Button } from "@mui/material";
 import { saveAs } from "file-saver";
 import JSZip from "jszip";
-import { useRouter } from "next/navigation";
-import { getStarterFiles } from "./util";
+import { useParams, useRouter } from "next/navigation";
 import { useState } from "react";
-import { useParams } from "next/navigation";
 
 export default function ZipFiles() {
   const { user } = useUser();
@@ -21,7 +20,10 @@ export default function ZipFiles() {
     setState("Downloading starter files...");
     const zip = new JSZip();
 
-    const starterFiles = await getStarterFiles(projectName);
+    const starterFiles = await getDocumentDataInCollection(
+      "downloadable_starter_files",
+      projectName
+    );
     const images = [];
     for (const starterFile in starterFiles) {
       const value = starterFiles[starterFile];
