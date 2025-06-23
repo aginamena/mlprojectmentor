@@ -1,5 +1,5 @@
 import {
-  createUserProfileIfNotCreated,
+  // createUserProfileIfNotCreated,
   getDocumentDataInCollection,
 } from "@/lib/databaseQuery";
 import { Container } from "@mui/material";
@@ -15,7 +15,7 @@ export default async function ProjectDetail({
 }) {
   const { projectName } = await params;
 
-  await createUserProfileIfNotCreated(`/projects/${projectName}`);
+  // await createUserProfileIfNotCreated(`/projects/${projectName}`);
 
   let desktop_images: string[] = [];
   let mobile_images: string[] = [];
