@@ -1,9 +1,7 @@
 "use server";
 
-import { redirect } from "next/navigation";
-import { auth0 } from "./auth0";
+import { collection, doc, DocumentData, getDoc, getDocs, setDoc, updateDoc } from "firebase/firestore";
 import { db } from "./firebase";
-import { collection, doc, DocumentData, getDoc, getDocs, setDoc } from "firebase/firestore";
 
 export async function getDocumentDataInCollection(collectionName:string, documentName:string) {
   const docRef = doc(db, collectionName, documentName);
@@ -23,17 +21,14 @@ return result
 export async function createDocumentDataInCollection(collectionName:string, documentName:string,data:object){
     await setDoc(doc(db, collectionName, documentName), data);
 }
-export async  function createUserProfileIfNotCreated(currentPath:string){
-     const session = await auth0.getSession();
-      if (!session) {
-        redirect(`/auth/login?returnTo=${currentPath}`);
-      }
-      const { user } = session;
-      const profileCreated = await getDocumentDataInCollection(
-        "users",
-        user.email as string
+export async function updateDocumentDateInCollection(collectionName:string, documentName:string,data:object){
+   const profileCreated = await getDocumentDataInCollection(
+       collectionName,
+        documentName,
       );
       if (!profileCreated) {
-        await createDocumentDataInCollection("users", user.email as string, user);
+        await createDocumentDataInCollection(collectionName, documentName, data);
+      }else{
+        await updateDoc(doc(db, collectionName, documentName), data)
       }
 }
