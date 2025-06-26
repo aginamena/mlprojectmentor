@@ -49,37 +49,17 @@ export default function ZipFiles() {
     setState("Downloaded starter files");
   }
 
-  if (!user) {
-    return (
-      <Button
-        onClick={() =>
-          router.push(`../auth/login?returnTo=/projects/${projectName}`)
-        }
-        variant="contained"
-        sx={{
-          mt: 3,
-          color: "white",
-          backgroundColor: "#0018FF",
-          textTransform: "none",
-          fontSize: "1rem",
-          fontWeight: "bold",
-          mb: { xs: "50px", md: "0" },
-          borderRadius: "999px",
-          px: 3,
-          py: 1.5,
-
-          "&:hover": { backgroundColor: "#0012cc" },
-        }}
-      >
-        Download starter files
-        <LockIcon style={{ marginLeft: "5px" }} />
-      </Button>
-    );
+  function handleOnclick() {
+    if (!user) {
+      router.push(`../auth/login?returnTo=/projects/${projectName}`);
+    } else {
+      generateZipFolder();
+    }
   }
 
   return (
     <Button
-      onClick={generateZipFolder}
+      onClick={handleOnclick}
       variant="contained"
       sx={{
         mt: 3,
@@ -97,6 +77,7 @@ export default function ZipFiles() {
       }}
     >
       {state}
+      {!user && <LockIcon style={{ marginLeft: "5px" }} />}
     </Button>
   );
 }

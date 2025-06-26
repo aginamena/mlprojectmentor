@@ -23,6 +23,8 @@ export default async function Success({
         ...user,
         has_subscribed: true,
       });
+    } else {
+      redirect("/");
     }
   } catch (error) {
     console.error(error);
