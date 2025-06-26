@@ -1,13 +1,17 @@
 "use client";
 
 import { getDocumentDataInCollection } from "@/lib/databaseQuery";
+import { useUser } from "@auth0/nextjs-auth0";
+import LockIcon from "@mui/icons-material/Lock";
 import { Button } from "@mui/material";
 import { saveAs } from "file-saver";
 import JSZip from "jszip";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function ZipFiles() {
+  const { user } = useUser();
+  const router = useRouter();
   const params = useParams();
   const [state, setState] = useState("Download starter files");
   const projectName = params.projectName as string;
@@ -43,6 +47,34 @@ export default function ZipFiles() {
     const content = await zip.generateAsync({ type: "blob" });
     saveAs(content, `${projectName}.zip`);
     setState("Downloaded starter files");
+  }
+
+  if (!user) {
+    return (
+      <Button
+        onClick={() =>
+          router.push(`../auth/login?returnTo=/projects/${projectName}`)
+        }
+        variant="contained"
+        sx={{
+          mt: 3,
+          color: "white",
+          backgroundColor: "#0018FF",
+          textTransform: "none",
+          fontSize: "1rem",
+          fontWeight: "bold",
+          mb: { xs: "50px", md: "0" },
+          borderRadius: "999px",
+          px: 3,
+          py: 1.5,
+
+          "&:hover": { backgroundColor: "#0012cc" },
+        }}
+      >
+        Download starter files
+        <LockIcon style={{ marginLeft: "5px" }} />
+      </Button>
+    );
   }
 
   return (
