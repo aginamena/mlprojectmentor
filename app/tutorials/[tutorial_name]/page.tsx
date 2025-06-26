@@ -31,7 +31,7 @@ export default async function Tutorial({
   }
 
   return (
-    <Container style={{ marginBottom: "100px" }}>
+    <Container style={{ paddingTop: "40px", paddingBottom: "40px" }}>
       <Content node={content as UIComponentNode} />
       {content.next_tutorial && (
         <Box sx={{ textAlign: "center" }}>

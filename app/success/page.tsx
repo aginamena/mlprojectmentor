@@ -1,4 +1,3 @@
-import Header from "@/components/Header";
 import { auth0 } from "@/lib/auth0";
 import { updateDocumentDateInCollection } from "@/lib/databaseQuery";
 import { Container, Typography } from "@mui/material";
@@ -23,6 +22,8 @@ export default async function Success({
         ...user,
         has_subscribed: true,
       });
+    } else {
+      redirect("/");
     }
   } catch (error) {
     console.error(error);
@@ -31,8 +32,7 @@ export default async function Success({
 
   return (
     <>
-      <Header />
-      <Container>
+      <Container style={{ paddingTop: "40px", paddingBottom: "40px" }}>
         <Typography>
           Thank you for subscribing! You can now access all premium content
         </Typography>

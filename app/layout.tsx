@@ -2,6 +2,7 @@ import Footer from "@/components/Footer";
 import ThemeRegistry from "@/components/ThemeRegistry";
 import type { Metadata } from "next";
 import "./globals.css";
+import Header from "@/components/Header";
 
 export const metadata: Metadata = {
   title: "Machine Learning Project Mentor",
@@ -55,6 +56,7 @@ export default function RootLayout({
 
       <body suppressHydrationWarning>
         <ThemeRegistry>
+          <Header />
           {children}
           <Footer />
         </ThemeRegistry>
