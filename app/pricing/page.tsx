@@ -1,4 +1,3 @@
-import Header from "@/components/Header";
 import CheckIcon from "@mui/icons-material/Check";
 import {
   Avatar,
@@ -76,12 +75,10 @@ export default async function Pricing() {
 
   return (
     <>
-      <Header />
-      <Container>
+      <Container style={{ paddingTop: "40px", paddingBottom: "40px" }}>
         <Box
           sx={{
             color: "white",
-            py: 8,
             textAlign: "center",
           }}
         >

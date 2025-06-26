@@ -1,4 +1,3 @@
-import Header from "@/components/Header";
 import JoinFbCommunity from "@/components/JoinFbCommunity";
 import CodeIcon from "@mui/icons-material/Code";
 import {
@@ -60,7 +59,6 @@ export default function Home() {
             background: `linear-gradient(to bottom, rgba(0,0,0,0.4) 30%, rgba(0,0,0,1) 100%)`,
           }}
         />
-        <Header />
         <Box
           sx={{
             maxWidth: "720px",

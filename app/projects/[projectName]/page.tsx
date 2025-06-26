@@ -1,7 +1,4 @@
-import {
-  // createUserProfileIfNotCreated,
-  getDocumentDataInCollection,
-} from "@/lib/databaseQuery";
+import { getDocumentDataInCollection } from "@/lib/databaseQuery";
 import { Container } from "@mui/material";
 import FurtherReading from "./FurtherReading";
 import Gallary from "./Gallary";
@@ -14,8 +11,6 @@ export default async function ProjectDetail({
   params: Promise<{ projectName: string }>;
 }) {
   const { projectName } = await params;
-
-  // await createUserProfileIfNotCreated(`/projects/${projectName}`);
 
   let desktop_images: string[] = [];
   let mobile_images: string[] = [];

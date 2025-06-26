@@ -122,12 +122,12 @@ const tutorials = [
 
 export default async function Tutorials() {
   return (
-    <Container>
+    <Container style={{ paddingTop: "40px", paddingBottom: "40px" }}>
       <Introduction />
       <Divider sx={{ mt: 4, mb: 4 }} />
       <Box>
         {tutorials.map((tutorial, idx) => (
-          <Box key={idx} sx={{ mb: 8 }}>
+          <Box key={idx}>
             <Stack
               direction="row"
               alignItems="center"
