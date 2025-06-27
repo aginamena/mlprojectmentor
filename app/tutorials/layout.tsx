@@ -10,7 +10,7 @@ export default function ProjectLayout({
   return (
     <Box>
       {children}
-      <JoinFbCommunity header="Do you Have a Question?" />
+      <JoinFbCommunity header="Do you have a question?" />
     </Box>
   );
 }

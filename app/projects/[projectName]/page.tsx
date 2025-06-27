@@ -1,9 +1,9 @@
 import { getDocumentDataInCollection } from "@/lib/databaseQuery";
-import { Container } from "@mui/material";
-import FurtherReading from "./FurtherReading";
+import { Button, Container, Typography, Box } from "@mui/material";
 import Gallary from "./Gallary";
 import Introduction from "./Introduction";
 import ProjectDetails from "./ProjectDetails";
+import Link from "next/link";
 
 export default async function ProjectDetail({
   params,
@@ -19,7 +19,6 @@ export default async function ProjectDetail({
   let background = "";
   let starter_files = "";
   let optional_tasks = "";
-  let required_reading_link = "";
   let difficulty = "";
   let model = "";
   let access = "";
@@ -37,7 +36,6 @@ export default async function ProjectDetail({
     difficulty = data.difficulty;
     model = data.model;
     access = data.access;
-    required_reading_link = data.required_reading_link;
   }
 
   return (
@@ -60,10 +58,56 @@ export default async function ProjectDetail({
           optional_tasks={optional_tasks}
         />
       </Container>
-      <FurtherReading
-        required_reading_link={required_reading_link}
-        model={model}
-      />
+      <Box
+        sx={{
+          width: "100%",
+          minHeight: 300,
+          px: 2,
+          py: 6,
+          textAlign: "center",
+          background: `linear-gradient(
+                  20deg,
+                  rgba(0, 0, 0, 1) 30%,
+                  rgba(0, 249, 255, 0.3) 50%,
+                  rgba(0, 0, 0, 1) 70%
+                ) `,
+          color: "#fff",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <Typography
+          variant="h4"
+          component="h2"
+          sx={{
+            fontWeight: 700,
+            mb: 2,
+            fontSize: { xs: "1.8rem", md: "2.5rem" },
+          }}
+        >
+          New to Machine Learning?
+        </Typography>
+        <Button
+          variant="contained"
+          sx={{
+            backgroundColor: "#0018FF",
+            color: "#fff",
+            textTransform: "none",
+            fontWeight: 600,
+            px: 4,
+            py: 1.5,
+            borderRadius: "999px",
+            fontSize: "1rem",
+            "&:hover": {
+              backgroundColor: "#0012cc",
+            },
+          }}
+        >
+          <Link href="../tutorials">Start Learning with Tutorials</Link>
+        </Button>
+      </Box>
     </>
   );
 }
