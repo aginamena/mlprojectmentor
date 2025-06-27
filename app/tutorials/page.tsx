@@ -1,9 +1,7 @@
-import LockIcon from "@mui/icons-material/Lock";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
 import {
   Avatar,
   Box,
-  Chip,
   Container,
   Divider,
   List,
@@ -12,7 +10,7 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import Link from "next/link";
+import Content from "./Content";
 import Introduction from "./Introduction";
 
 const tutorials = [
@@ -159,31 +157,14 @@ export default async function Tutorials() {
                   <ListItemIcon>
                     <MenuBookIcon sx={{ color: "#1976d2" }} />
                   </ListItemIcon>
-                  <Link href={`tutorials/${sub_tutorial.tutorial_name}`}>
-                    <Typography
-                      fontWeight="bold"
-                      variant="subtitle1"
-                      style={{ textDecoration: "underline" }}
-                    >
-                      {sub_tutorial.title}
-                      {sub_tutorial.premium && (
-                        <Chip
-                          icon={<LockIcon sx={{ fontSize: 16 }} />}
-                          label="Premium"
-                          size="small"
-                          sx={{
-                            color: "white",
-                            bgcolor: "#0012cc",
-                            marginLeft: "10px",
-                            p: 1,
-                          }}
-                        />
-                      )}
-                    </Typography>
-                    <Typography variant="body2" color="textSecondary">
-                      {sub_tutorial.description}
-                    </Typography>
-                  </Link>
+                  <Content
+                    sub_tutorial={{
+                      title: sub_tutorial.title,
+                      premium: sub_tutorial.premium,
+                      name: sub_tutorial.tutorial_name,
+                      description: sub_tutorial.description,
+                    }}
+                  />
                 </ListItem>
               ))}
             </List>

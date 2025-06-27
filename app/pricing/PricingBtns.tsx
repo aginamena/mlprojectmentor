@@ -1,10 +1,10 @@
 "use client";
 
-import { useUser } from "@auth0/nextjs-auth0";
-import LockIcon from "@mui/icons-material/Lock";
 import { Button } from "@mui/material";
 import { loadStripe } from "@stripe/stripe-js";
+import { useUser } from "@auth0/nextjs-auth0";
 import { useRouter } from "next/navigation";
+import LockIcon from "@mui/icons-material/Lock";
 
 export default function PricingBtns({ priceId }: { priceId: string }) {
   const { user } = useUser();
