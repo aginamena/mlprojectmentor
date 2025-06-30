@@ -9,16 +9,21 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 export default async function Success({
   searchParams,
 }: {
-  searchParams: Promise<{ session_id: string; customerEmail: string }>;
+  searchParams: Promise<{
+    session_id: string;
+    customerEmail: string;
+    referrerEmail: string | null;
+  }>;
 }) {
-  const { session_id, customerEmail } = await searchParams;
+  const { session_id, customerEmail, referrerEmail } = await searchParams;
 
   try {
     const session = await stripe.checkout.sessions.retrieve(session_id);
-    if (session.payment_status == "paid" && customerEmail) {
-      await updateDocumentDataInCollection("users", customerEmail, {
-        has_subscribed: true,
-      });
+    if (session.payment_status == "paid") {
+      const data = referrerEmail
+        ? { has_subscribed: true, referrerEmail }
+        : { has_subscribed: true };
+      await updateDocumentDataInCollection("users", customerEmail, data);
     } else {
       redirect("/");
     }

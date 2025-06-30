@@ -4,21 +4,44 @@ import { loginWithGoogle } from "@/lib/auth";
 import { auth } from "@/lib/firebaseClient";
 import { Button, CircularProgress } from "@mui/material";
 import { loadStripe } from "@stripe/stripe-js";
-import { useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { Suspense, useState } from "react";
+
 export default function PricingBtns({ priceId }: { priceId: string }) {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <Btns priceId={priceId} />
+    </Suspense>
+  );
+}
+
+function Btns({ priceId }: { priceId: string }) {
   const user = auth.currentUser;
   const [loading, setLoading] = useState(false);
+  const searchParams = useSearchParams();
+  const ref = searchParams.get("ref");
+  if (ref) {
+    sessionStorage.setItem("referrerEmail", ref);
+  }
 
   async function handleSubscribe() {
     const stripe = await loadStripe(
       process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string
     );
+    const referrerEmail = sessionStorage.getItem("referrerEmail");
+
     const { sessionId } = await fetch("/api/create_checkout_session", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ priceId, customerEmail: auth.currentUser?.email }),
+      body: referrerEmail
+        ? JSON.stringify({
+            priceId,
+            customerEmail: auth.currentUser?.email,
+            referrerEmail,
+          })
+        : JSON.stringify({ priceId, customerEmail: auth.currentUser?.email }),
     }).then((res) => res.json());
 
     if (stripe) {
