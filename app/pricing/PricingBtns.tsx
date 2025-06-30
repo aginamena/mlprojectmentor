@@ -8,6 +8,14 @@ import { useSearchParams } from "next/navigation";
 import { Suspense, useState } from "react";
 
 export default function PricingBtns({ priceId }: { priceId: string }) {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <Btns priceId={priceId} />
+    </Suspense>
+  );
+}
+
+function Btns({ priceId }: { priceId: string }) {
   const user = auth.currentUser;
   const [loading, setLoading] = useState(false);
   const searchParams = useSearchParams();
@@ -55,32 +63,30 @@ export default function PricingBtns({ priceId }: { priceId: string }) {
     }
   }
   return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <Button
-        variant="contained"
-        onClick={handleOnclick}
-        sx={{
-          backgroundColor: "#fff",
-          color: "#000",
-          textTransform: "none",
-          fontWeight: "bold",
-          px: 4,
-          py: 1.5,
-          borderRadius: "999px",
-          fontSize: "1rem",
-          "&:hover": {
-            backgroundColor: "#e0e0e0",
-          },
-        }}
-      >
-        Smart learners go premium — join them
-        {loading && (
-          <CircularProgress
-            size={24}
-            style={{ marginLeft: "5px", color: "black" }}
-          />
-        )}
-      </Button>
-    </Suspense>
+    <Button
+      variant="contained"
+      onClick={handleOnclick}
+      sx={{
+        backgroundColor: "#fff",
+        color: "#000",
+        textTransform: "none",
+        fontWeight: "bold",
+        px: 4,
+        py: 1.5,
+        borderRadius: "999px",
+        fontSize: "1rem",
+        "&:hover": {
+          backgroundColor: "#e0e0e0",
+        },
+      }}
+    >
+      Smart learners go premium — join them
+      {loading && (
+        <CircularProgress
+          size={24}
+          style={{ marginLeft: "5px", color: "black" }}
+        />
+      )}
+    </Button>
   );
 }
