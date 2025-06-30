@@ -4,7 +4,7 @@ import Stripe from 'stripe';
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 
 export async function POST(request: NextRequest) {
-  const { priceId } = await request.json();
+  const { priceId, customerEmail } = await request.json();
 
   try {
     const session = await stripe.checkout.sessions.create({
@@ -16,7 +16,8 @@ export async function POST(request: NextRequest) {
           quantity: 1,
         },
       ],
-      success_url: `${request.headers.get('origin')}/success?session_id={CHECKOUT_SESSION_ID}`,
+      customer_email: customerEmail,
+      success_url: `${request.headers.get('origin')}/success?session_id={CHECKOUT_SESSION_ID}&customerEmail=${customerEmail}`,
       cancel_url: `${request.headers.get('origin')}/pricing`,
     });
 

@@ -1,14 +1,13 @@
 "use client";
 
-import { Button } from "@mui/material";
+import { loginWithGoogle } from "@/lib/auth";
+import { auth } from "@/lib/firebaseClient";
+import { Button, CircularProgress } from "@mui/material";
 import { loadStripe } from "@stripe/stripe-js";
-import { useUser } from "@auth0/nextjs-auth0";
-import { useRouter } from "next/navigation";
-import LockIcon from "@mui/icons-material/Lock";
-
+import { useState } from "react";
 export default function PricingBtns({ priceId }: { priceId: string }) {
-  const { user } = useUser();
-  const router = useRouter();
+  const user = auth.currentUser;
+  const [loading, setLoading] = useState(false);
 
   async function handleSubscribe() {
     const stripe = await loadStripe(
@@ -19,7 +18,7 @@ export default function PricingBtns({ priceId }: { priceId: string }) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ priceId }),
+      body: JSON.stringify({ priceId, customerEmail: auth.currentUser?.email }),
     }).then((res) => res.json());
 
     if (stripe) {
@@ -29,11 +28,14 @@ export default function PricingBtns({ priceId }: { priceId: string }) {
         console.error(result.error);
       }
     }
+    setLoading(false);
   }
-  function handleOnclick() {
-    if (!user) {
-      router.push(`../auth/login?returnTo=/pricing`);
+  async function handleOnclick() {
+    setLoading(true);
+    if (user) {
+      handleSubscribe();
     } else {
+      await loginWithGoogle();
       handleSubscribe();
     }
   }
@@ -55,8 +57,13 @@ export default function PricingBtns({ priceId }: { priceId: string }) {
         },
       }}
     >
-      Smart learners go premium — join them{" "}
-      {!user && <LockIcon style={{ marginLeft: "5px" }} />}
+      Smart learners go premium — join them
+      {loading && (
+        <CircularProgress
+          size={24}
+          style={{ marginLeft: "5px", color: "black" }}
+        />
+      )}
     </Button>
   );
 }
