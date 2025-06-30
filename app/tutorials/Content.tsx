@@ -1,13 +1,13 @@
 "use client";
 
-import { Box, Chip, Typography } from "@mui/material";
-import LockIcon from "@mui/icons-material/Lock";
-import { useUser } from "@auth0/nextjs-auth0";
+import { loginWithGoogle } from "@/lib/auth";
+import { auth } from "@/lib/firebaseClient";
+import { Box, Chip, Typography, CircularProgress } from "@mui/material";
 import { useRouter } from "next/navigation";
-import { getDocumentDataInCollection } from "@/lib/databaseQuery";
+import { useState } from "react";
 
 type SubTutorial = {
-  name: string;
+  tutorial_name: string;
   premium: boolean;
   title: string;
   description: string;
@@ -18,25 +18,39 @@ export default function Content({
 }: {
   sub_tutorial: SubTutorial;
 }) {
-  const { user } = useUser();
+  const [loading, setLoading] = useState(false);
+  const user = auth.currentUser;
   const router = useRouter();
 
-  async function handleOnClick() {
-    if (!user) {
-      router.push(`../auth/login?returnTo=/tutorials`);
-    } else if (sub_tutorial.premium) {
-      const profile = await getDocumentDataInCollection(
-        "users",
-        user.email as string
-      );
-      if (!profile?.has_subscribed) {
+  async function displayContent() {
+    if (sub_tutorial.premium) {
+      const request = await fetch("/api/get_data", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          documentId: auth.currentUser?.email,
+          collectionName: "users",
+        }),
+      });
+      const profile = await request.json();
+      if (profile.has_subscribed) {
+        router.push(`../tutorials/${sub_tutorial.tutorial_name}`);
+      } else {
         alert("You have to upgrade to access this tutorial");
         router.push("../pricing");
-      } else {
-        router.push(`tutorials/${sub_tutorial.name}`);
       }
     } else {
-      router.push(`tutorials/${sub_tutorial.name}`);
+      router.push(`../tutorials/${sub_tutorial.tutorial_name}`);
+    }
+    setLoading(false);
+  }
+  async function handleOnClick() {
+    setLoading(true);
+    if (user) {
+      displayContent();
+    } else {
+      await loginWithGoogle();
+      displayContent();
     }
   }
 
@@ -48,7 +62,12 @@ export default function Content({
         style={{ textDecoration: "underline" }}
       >
         {sub_tutorial.title}
-        {!user && <LockIcon style={{ fontSize: 16, marginLeft: "5px" }} />}
+        {loading && (
+          <CircularProgress
+            size={16}
+            style={{ marginLeft: "5px", color: "white" }}
+          />
+        )}
         {sub_tutorial.premium && (
           <Chip
             label="Premium"

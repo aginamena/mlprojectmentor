@@ -1,16 +1,13 @@
-import {
-  // createUserProfileIfNotCreated,
-  getDocumentDataInCollection,
-} from "@/lib/databaseQuery";
-import { Box, Button, Container, Typography } from "@mui/material";
-import Link from "next/link";
+import { getDocumentDataInCollection } from "@/lib/dbQuery";
+import { Container, Typography } from "@mui/material";
 import { Content } from "./Content";
+import NextTutorialBtn from "./NextTutorialBth";
 
 type UIComponentNode = {
   type: string;
   props?: Record<string, React.ElementType>;
   children?: (string | UIComponentNode)[];
-  next_tutorial?: string;
+  next_tutorial?: object;
 };
 
 export default async function Tutorial({
@@ -19,7 +16,6 @@ export default async function Tutorial({
   params: Promise<{ tutorial_name: string }>;
 }) {
   const { tutorial_name } = await params;
-  // await createUserProfileIfNotCreated(`/tutorials/${tutorial_name}`);
 
   const content = await getDocumentDataInCollection("tutorials", tutorial_name);
   if (!content) {
@@ -34,30 +30,7 @@ export default async function Tutorial({
     <Container style={{ paddingTop: "40px", paddingBottom: "40px" }}>
       <Content node={content as UIComponentNode} />
       {content.next_tutorial && (
-        <Box sx={{ textAlign: "center" }}>
-          <Button
-            variant="contained"
-            sx={{
-              mt: 6,
-              backgroundColor: "#fff",
-              color: "#000",
-              textTransform: "none",
-              fontWeight: "bold",
-              px: 4,
-              py: 1.5,
-
-              borderRadius: "999px",
-              fontSize: "1rem",
-              "&:hover": {
-                backgroundColor: "#e0e0e0",
-              },
-            }}
-          >
-            <Link href={`../tutorials/${content.next_tutorial}`}>
-              Next tutorial
-            </Link>
-          </Button>
-        </Box>
+        <NextTutorialBtn next_tutorial={content.next_tutorial} />
       )}
     </Container>
   );

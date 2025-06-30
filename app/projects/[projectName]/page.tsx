@@ -1,4 +1,4 @@
-import { getDocumentDataInCollection } from "@/lib/databaseQuery";
+import { getDocumentDataInCollection } from "@/lib/dbQuery";
 import { Button, Container, Typography, Box } from "@mui/material";
 import Gallary from "./Gallary";
 import Introduction from "./Introduction";

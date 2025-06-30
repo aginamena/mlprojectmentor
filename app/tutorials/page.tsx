@@ -161,7 +161,7 @@ export default async function Tutorials() {
                     sub_tutorial={{
                       title: sub_tutorial.title,
                       premium: sub_tutorial.premium,
-                      name: sub_tutorial.tutorial_name,
+                      tutorial_name: sub_tutorial.tutorial_name,
                       description: sub_tutorial.description,
                     }}
                   />

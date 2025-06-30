@@ -1,17 +1,16 @@
 "use client";
 
-import { getDocumentDataInCollection } from "@/lib/databaseQuery";
-import { useUser } from "@auth0/nextjs-auth0";
-import LockIcon from "@mui/icons-material/Lock";
+import { loginWithGoogle } from "@/lib/auth";
+import { auth } from "@/lib/firebaseClient";
 import { Button } from "@mui/material";
 import { saveAs } from "file-saver";
+
 import JSZip from "jszip";
-import { useParams, useRouter } from "next/navigation";
+import { useParams } from "next/navigation";
 import { useState } from "react";
 
 export default function ZipFiles() {
-  const { user } = useUser();
-  const router = useRouter();
+  const user = auth.currentUser;
   const params = useParams();
   const [state, setState] = useState("Download starter files");
   const projectName = params.projectName as string;
@@ -19,11 +18,15 @@ export default function ZipFiles() {
   async function generateZipFolder() {
     setState("Downloading starter files...");
     const zip = new JSZip();
-
-    const starterFiles = await getDocumentDataInCollection(
-      "downloadable_starter_files",
-      projectName
-    );
+    const request = await fetch("/api/get_data", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        documentId: projectName,
+        collectionName: "downloadable_starter_files",
+      }),
+    });
+    const starterFiles = await request.json();
     const images = [];
     for (const starterFile in starterFiles) {
       const value = starterFiles[starterFile];
@@ -49,12 +52,11 @@ export default function ZipFiles() {
     setState("Downloaded starter files");
   }
 
-  function handleOnclick() {
+  async function handleOnclick() {
     if (!user) {
-      router.push(`../auth/login?returnTo=/projects/${projectName}`);
-    } else {
-      generateZipFolder();
+      await loginWithGoogle();
     }
+    generateZipFolder();
   }
 
   return (
@@ -77,7 +79,6 @@ export default function ZipFiles() {
       }}
     >
       {state}
-      {!user && <LockIcon style={{ marginLeft: "5px" }} />}
     </Button>
   );
 }

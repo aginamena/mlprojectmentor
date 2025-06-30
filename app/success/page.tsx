@@ -1,5 +1,4 @@
-import { auth0 } from "@/lib/auth0";
-import { updateDocumentDateInCollection } from "@/lib/databaseQuery";
+import { updateDocumentDataInCollection } from "@/lib/dbQuery";
 import { Container, Typography } from "@mui/material";
 import Link from "next/link";
 import { redirect } from "next/navigation";
@@ -10,16 +9,14 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 export default async function Success({
   searchParams,
 }: {
-  searchParams: Promise<{ session_id: string }>;
+  searchParams: Promise<{ session_id: string; customerEmail: string }>;
 }) {
-  const { session_id } = await searchParams;
-  const session = await auth0.getSession();
-  const user = session?.user;
+  const { session_id, customerEmail } = await searchParams;
+
   try {
     const session = await stripe.checkout.sessions.retrieve(session_id);
-    if (session.payment_status == "paid" && user) {
-      await updateDocumentDateInCollection("users", user.email as string, {
-        ...user,
+    if (session.payment_status == "paid" && customerEmail) {
+      await updateDocumentDataInCollection("users", customerEmail, {
         has_subscribed: true,
       });
     } else {

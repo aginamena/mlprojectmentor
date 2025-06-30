@@ -1,4 +1,4 @@
-import { getAllDocumentsDataInCollection } from "@/lib/databaseQuery";
+import { getAllDocumentsDataInCollection } from "@/lib/dbQuery";
 import { Container, Grid, Typography } from "@mui/material";
 import ProjectCard from "./ProjectCard";
 
