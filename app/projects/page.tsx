@@ -29,18 +29,20 @@ export default async function Projects() {
         machine learning to solve specific problems in the world.
       </Typography>
       <Grid container rowSpacing={3} columnSpacing={3}>
-        {projects.map((project) => (
-          <Grid size={{ xs: 12, sm: 6 }} key={project.name}>
-            <ProjectCard
-              access={project.access}
-              background={project.background}
-              model={project.model}
-              name={project.name}
-              difficulty={project.difficulty}
-              thumbnail={project.thumbnail}
-            />
-          </Grid>
-        ))}
+        {projects
+          .filter((project) => project.is_live)
+          .map((project) => (
+            <Grid size={{ xs: 12, sm: 6 }} key={project.name}>
+              <ProjectCard
+                access={project.access}
+                background={project.background}
+                model={project.model}
+                name={project.name}
+                difficulty={project.difficulty}
+                thumbnail={project.thumbnail}
+              />
+            </Grid>
+          ))}
       </Grid>
     </Container>
   );
