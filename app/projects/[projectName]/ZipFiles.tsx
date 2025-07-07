@@ -6,14 +6,15 @@ import { Button } from "@mui/material";
 import { saveAs } from "file-saver";
 
 import JSZip from "jszip";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { useState } from "react";
 
-export default function ZipFiles() {
+export default function ZipFiles({ access }: { access: string }) {
   const user = auth.currentUser;
   const params = useParams();
   const [state, setState] = useState("Download starter files");
   const projectName = params.projectName as string;
+  const router = useRouter();
 
   async function generateZipFolder() {
     setState("Downloading starter files...");
@@ -52,11 +53,35 @@ export default function ZipFiles() {
     setState("Downloaded starter files");
   }
 
-  async function handleOnclick() {
-    if (!user) {
-      await loginWithGoogle();
+  async function isUserAuthorized() {
+    if (access === "Premium") {
+      const request = await fetch("/api/get_data", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          documentId: auth.currentUser?.email,
+          collectionName: "users",
+        }),
+      });
+      const profile = await request.json();
+      if (profile.has_subscribed) {
+        generateZipFolder();
+      } else {
+        alert("You have to upgrade to be able to download the starter files");
+        router.push("../pricing");
+      }
+    } else {
+      generateZipFolder();
     }
-    generateZipFolder();
+  }
+
+  async function handleOnclick() {
+    if (user) {
+      isUserAuthorized();
+    } else {
+      await loginWithGoogle();
+      isUserAuthorized();
+    }
   }
 
   return (

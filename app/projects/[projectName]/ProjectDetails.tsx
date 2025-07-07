@@ -6,11 +6,13 @@ export default function ProjectDetails({
   background,
   starter_files,
   optional_tasks,
+  access,
 }: {
   requirements: string;
   background: string;
   starter_files: string;
   optional_tasks: string;
+  access: string;
 }) {
   return (
     <Grid container spacing={3} sx={{ p: { xs: 2, md: 4 } }}>
@@ -93,7 +95,7 @@ export default function ProjectDetails({
         </Paper>
       </Grid>
       <Box style={{ textAlign: "center", width: "100%" }}>
-        <ZipFiles />
+        <ZipFiles access={access} />
       </Box>
     </Grid>
   );

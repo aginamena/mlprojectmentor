@@ -30,7 +30,7 @@ export default function Introduction({
         >
           {name}
         </Typography>
-        <ZipFiles />
+        <ZipFiles access={access} />
       </Box>
       <Box maxWidth={500}>
         <MetaChips model={model} difficulty={difficulty} access={access} />

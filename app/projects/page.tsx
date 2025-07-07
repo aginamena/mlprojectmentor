@@ -37,6 +37,7 @@ export default async function Projects() {
                 access={project.access}
                 background={project.background}
                 model={project.model}
+                new_project={project.new_project}
                 name={project.name}
                 difficulty={project.difficulty}
                 thumbnail={project.thumbnail}

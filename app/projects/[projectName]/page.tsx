@@ -56,6 +56,7 @@ export default async function ProjectDetail({
           background={background}
           starter_files={starter_files}
           optional_tasks={optional_tasks}
+          access={access}
         />
       </Container>
       <Box
