@@ -92,7 +92,7 @@ export default function MetaChips({
         <Typography
           variant="body2"
           sx={{
-            backgroundColor: "#069348",
+            backgroundColor: access == "Premium" ? "#002AC1" : "#069348",
             color: "#fff",
             px: 1.5,
             py: 0.5,
