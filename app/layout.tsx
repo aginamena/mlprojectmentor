@@ -42,11 +42,11 @@ export default function RootLayout({
         <script
           dangerouslySetInnerHTML={{
             __html: `
-  window._mfq = window._mfq || [];
+ window._mfq = window._mfq || [];
   (function() {
     var mf = document.createElement("script");
     mf.type = "text/javascript"; mf.defer = true;
-    mf.src = "//cdn.mouseflow.com/projects/b59ea57b-d006-4839-8915-5ac195d5675a.js";
+    mf.src = "//cdn.mouseflow.com/projects/5928c12f-e3c1-4f19-8bf6-0cfd36e48774.js";
     document.getElementsByTagName("head")[0].appendChild(mf);
   })();
             `,
